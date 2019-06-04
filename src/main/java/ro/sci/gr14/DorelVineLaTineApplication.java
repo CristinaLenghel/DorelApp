@@ -9,5 +9,4 @@ public class DorelVineLaTineApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DorelVineLaTineApplication.class, args);
 	}
-
 }
