@@ -1,8 +1,13 @@
 package ro.sci.gr14.model;
 
-public class BaseUser {
+import javax.persistence.*;
 
-    private int id;
+@Entity
+@Table(name="base_user")
+public class BaseUser {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     private String userName;
     private String password;
     private String email;
@@ -10,16 +15,12 @@ public class BaseUser {
     private String phoneNumber;
     private String city;
     private String county;
+    private String role;
 
     public BaseUser(){
-        this.id = 0;
-        this.userName = "";
-        this.password = "";
-        this.email = "";
-        this.fullName = "";
     }
 
-    public BaseUser(int id, String userName, String password, String email, String fullName, String phoneNumber, String city, String county) {
+    public BaseUser(Long id, String userName, String password, String email, String fullName, String phoneNumber, String city, String county, String role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -28,13 +29,14 @@ public class BaseUser {
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.county = county;
+        this.role=role;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -92,5 +94,28 @@ public class BaseUser {
 
     public void setCounty(String county) {
         this.county = county;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseUser{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", city='" + city + '\'' +
+                ", county='" + county + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
