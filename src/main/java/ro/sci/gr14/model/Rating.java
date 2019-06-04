@@ -3,9 +3,9 @@ package ro.sci.gr14.model;
 public class Rating {
 
     private int votes;
-    private int averageStars;
+    private double averageStars;
 
-    public Rating(int votes, int averageStars) {
+    public Rating(int votes, double averageStars) {
         this.votes = votes;
         this.averageStars = averageStars;
     }
@@ -18,11 +18,11 @@ public class Rating {
         this.votes = votes;
     }
 
-    public int getAverageStars() {
+    public double getAverageStars() {
         return averageStars;
     }
 
-    public void setAverageStars(int averageStars) {
+    public void setAverageStars(double averageStars) {
         this.averageStars = averageStars;
     }
 }
