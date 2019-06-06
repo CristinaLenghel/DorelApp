@@ -10,7 +10,9 @@ public class Handyman extends BaseUser {
     private Rating rating;
     private Schedule schedule;
 
-    public Handyman(Long id, String userName, String password, String email, String fullName, String phoneNumber, String city, String county, String specialty, Date workingSince, int pricePerHour, Rating rating, Schedule schedule, String role) {
+    public Handyman(Long id, String userName, String password, String email, String fullName, String phoneNumber,
+                    String city, String county, String specialty, Date workingSince, int pricePerHour, Rating rating,
+                    Schedule schedule, String role) {
         super(id, userName, password, email, fullName, phoneNumber, city, county,role);
         this.specialty = specialty;
         this.workingSince = workingSince;
