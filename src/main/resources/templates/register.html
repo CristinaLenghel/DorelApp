@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Dorel Vine la Tine</title>
 <meta name="keywords" content="" />
@@ -62,5 +63,22 @@
 		<p>www.dorelvinelatine.com</p>
 	</div>
 	<!-- end #footer -->
+=======
+    <title>Taco Cloud</title>
+</head>
+
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/register}" th:object="${baseUser}" method="post">
+    <p>Username: <input type="text" th:field="*{userName}" /></p>
+    <p>Password: <input type="text" th:field="*{password}" /></p>
+    <p>Email: <input type="text" th:field="*{email}" /></p>
+    <p>Full name: <input type="text" th:field="*{fullName}" /></p>
+    <p>Phone number: <input type="text" th:field="*{phoneNumber}" /></p>
+    <p>City: <input type="text" th:field="*{city}" /></p>
+    <p>County: <input type="text" th:field="*{county}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+>>>>>>> c7ea4767a793e8c4c8e575f2848ecdc013baff0e
 </body>
 </html>

@@ -1,26 +1,33 @@
 package ro.sci.gr14.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="base_user")
 public class BaseUser {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "auto_gen")
+    @SequenceGenerator(name = "auto_gen", sequenceName = "A")
     private Long id;
+    @Column(name="user_name")
+    @NotBlank(message = "Username is required")
     private String userName;
     private String password;
     private String email;
+    @Column(name = "full_name")
     private String fullName;
+    @Column(name = "phone_number")
     private String phoneNumber;
     private String city;
     private String county;
-    private String role;
+    private String role="user";
 
     public BaseUser(){
+        //role="user";
     }
 
-    public BaseUser(Long id, String userName, String password, String email, String fullName, String phoneNumber, String city, String county, String role) {
+    public BaseUser(Long id,String userName, String password, String email, String fullName, String phoneNumber, String city, String county, String role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
