@@ -1,7 +1,6 @@
 package ro.sci.gr14.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name="base_user")
@@ -11,7 +10,6 @@ public class BaseUser {
     @SequenceGenerator(name = "auto_gen", sequenceName = "A")
     private Long id;
     @Column(name="user_name")
-    @NotBlank(message = "Username is required")
     private String userName;
     private String password;
     private String email;
