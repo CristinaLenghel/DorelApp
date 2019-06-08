@@ -354,7 +354,7 @@ hr { display: none; }
 	padding: 6px 0 2px 14px;
 	background: url(images/img05.gif) repeat-x left top;
 	/* text-transform: capitalize; */
-	font-size: 18px;
+	font-size: 26px;
 	font-weight: normal;
 	color: #618C04;
 }
@@ -481,7 +481,6 @@ input[type=submit], [type=reset] {
 	font-style: italic;
 	/* text-transform: uppercase; */
 	font-size: 30px;
-	
 }
 
 #footer a {
