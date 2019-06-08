@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Dorel Vine la Tine</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body>
+
+<div id="logo">
+		<h1><a href="#">dorel vine la tine! </a></h1>
+		<p><em> o aplicație <a href="http://templated.co" rel="nofollow"> care te scapă de bătăi de cap </a></em></p>
+	</div>
+	<hr />
+	<!-- end #logo -->
+	<div id="header">
+		<div id="menu">
+			
+		</div>
+		<!-- end #menu -->
+		<div id="search">
+			
+		</div>
+		<!-- end #search -->
+	</div>
+	<!-- end #header -->
+	<!-- end #header-wrapper -->
+	<div id="page">
+		<div id="content">
+		  <div class="post">
+				<h1>Creează un cont</h1>
+					<br>
+					<form action="#" th:action="@{/register}" th:object="${baseUser}" method="post">
+						<p><input type="text" placeholder=" Nume utilizator" th:field="*{userName}" /></p>
+						<p><input type="text" placeholder=" Parola" th:field="*{password}" /></p>
+						<p><input type="text" placeholder=" Email" th:field="*{email}" /></p>
+						<p><input type="text" placeholder=" Nume complet"th:field="*{fullName}" /></p>
+						<p><input type="text" placeholder=" Telefon mobil"th:field="*{phoneNumber}" /></p>
+						<p><input type="text" placeholder=" Oraș"th:field="*{city}" /></p>
+						<p><input type="text" placeholder=" Județ"th:field="*{county}" /></p>
+						<p><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează" /></p>
+					</form>
+		  </div>			
+		</div><!-- end #content -->
+		<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Intră în cont?</h2>
+					<p><strong>Aici </strong>ar fi linkul spre pagina de login? <a href="/register">aici? </a>.</p>					
+				</li>			
+			</ul>
+		</div>
+		<!-- end #sidebar -->
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<!-- end #page -->
+	<div id="footer">
+		<p>www.dorelvinelatine.com</p>
+	</div>
+	<!-- end #footer -->
+</body>
+</html>
