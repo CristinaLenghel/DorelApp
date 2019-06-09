@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dorel Vine la tine</title>
+</head>
+
+<body>
+<h1>Bine ai venit la "Dorel vine la tine"</h1>
+
+<p>Daca esti nou <a th:href="@{/register}" id="register">inregistreaza-te.</a></p>
+<p><a th:href="@{/login}" id="login">Login  </a></p>
+<p><a th:href="@{/user}" id="user">User Page</a></p>
+<form method="POST" th:action="@{/logout}" id="logoutForm">
+    <input type="submit" value="Logout"/>
+</form>
+
+
+</body>
+</html>

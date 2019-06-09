@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface IBaseUserRepository extends CrudRepository<BaseUser, Long> {
-    List<ro.sci.gr14.model.BaseUser> findByFullName(String fullName);
+    List<BaseUser> findByFullname(String fullname);
+    BaseUser findByUsername(String username);
 }

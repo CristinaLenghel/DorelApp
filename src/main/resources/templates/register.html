@@ -2,20 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Taco Cloud</title>
+    <title>Dorel vine la tine</title>
 </head>
 
 <body>
-<h1>Form</h1>
-<form action="#" th:action="@{/register}" th:object="${baseUser}" method="post">
-    <p>Username: <input type="text" th:field="*{userName}" /></p>
-    <p>Password: <input type="text" th:field="*{password}" /></p>
-    <p>Email: <input type="text" th:field="*{email}" /></p>
-    <p>Full name: <input type="text" th:field="*{fullName}" /></p>
-    <p>Phone number: <input type="text" th:field="*{phoneNumber}" /></p>
-    <p>City: <input type="text" th:field="*{city}" /></p>
-    <p>County: <input type="text" th:field="*{county}" /></p>
-    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+<h1>Register</h1>
+<form th:action="@{/register}" method="post" id="regiterForm">
+    <p></p><Label for="username">Username:</Label><input type="text" name="username" required/></p>
+    <p><label for="password">Password:</label><input type="password" name="password" required/></p>
+    <p><label for="confirm">Confirm password:</label><input type="password" name="confirm" required/></p>
+    <p><label for="email">Email:</label><input type="text" name="email" required></p>
+    <p><label for="fullname">Full name:</label><input type="text" name="fullname" required/></p>
+    <p><label for="phonenumber">Phone number:</label><input type="text" name="phonenumber" required></p>
+    <p><label for="city">City:</label><input type="text" name="city" required/></p>
+    <p><label for="county">County:</label> <input type="text" name="county" required/></p>
+    <p><input type="submit" value="Register" /> <input type="reset" value="Reset"/></p>
 </form>
 </body>
 </html>
