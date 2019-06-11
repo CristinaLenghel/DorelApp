@@ -1,37 +1,51 @@
 package ro.sci.gr14.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Arrays;
+import java.util.Collection;
+
 
 @Entity
 @Table(name="base_user")
-public class BaseUser {
+public class BaseUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "auto_gen")
     @SequenceGenerator(name = "auto_gen", sequenceName = "A")
     private Long id;
-    @Column(name="user_name")
-    private String userName;
+    @Column(name="username")
+    @NotBlank(message = "Username is required")
+    private String username;
+    @NotBlank(message = "Password in required")
     private String password;
+    @NotBlank(message = "Email is required")
     private String email;
-    @Column(name = "full_name")
-    private String fullName;
-    @Column(name = "phone_number")
-    private String phoneNumber;
+    @Column(name = "fullname")
+    @NotBlank(message = "Full name is required")
+    private String fullname;
+    @Column(name = "phonenumber")
+    @NotBlank(message = "Phone number is required")
+    private String phonenumber;
+    @NotBlank(message = "*")
     private String city;
+    @NotBlank(message = "*")
     private String county;
     private String role="user";
 
     public BaseUser(){
-        //role="user";
     }
 
-    public BaseUser(Long id,String userName, String password, String email, String fullName, String phoneNumber, String city, String county, String role) {
+    public BaseUser(Long id, String userName, String password, String email, String fullname, String phonenumber, String city, String county, String role) {
         this.id = id;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
         this.email = email;
-        this.fullName = fullName;
-        this.phoneNumber = phoneNumber;
+        this.fullname = fullname;
+        this.phonenumber = phonenumber;
         this.city = city;
         this.county = county;
         this.role=role;
@@ -45,12 +59,12 @@ public class BaseUser {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
@@ -69,20 +83,20 @@ public class BaseUser {
         this.email = email;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     public String getCity() {
@@ -113,14 +127,35 @@ public class BaseUser {
     public String toString() {
         return "BaseUser{" +
                 "id=" + id +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", phonenumber='" + phonenumber + '\'' +
                 ", city='" + city + '\'' +
                 ", county='" + county + '\'' +
                 ", role='" + role + '\'' +
                 '}';
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

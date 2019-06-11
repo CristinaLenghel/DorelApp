@@ -1,58 +1,10 @@
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Dorel Vine la Tine</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div id="logo">
-    <h1><a href="#">Dorel vine la tine! </a></h1>
-    <p><em> o aplicatie care te scapă de bătăi de cap </a></em></p>
-</div>
-<hr />
-<!-- end #logo -->
-<div id="header">
-    <div id="menu">
-
-    </div>
-    <!-- end #menu -->
-    <div id="search">
-
-    </div>
-    <!-- end #search -->
-</div>
-<!-- end #header -->
-<!-- end #header-wrapper -->
-<div id="page">
-    <div id="content">
-        <div class="post">
-            <h2 class="title"><a href="#">Bine ai venit la DorelVineLaTine.com! </a></h2>
-            <div class="entry">
-                <p>Contul tău a fost creat cu succes.</p>
-            </div>
-        </div>
-    </div><!-- end #content -->
-    <div id="sidebar">
-        <ul>
-            <li>
-                <h2>Bla bla bla</h2>
-                <p><strong>Bla </strong>bla bla bla<a href="/register">bla</a>?</p>
-            </li>
-        </ul>
-    </div>
-    <!-- end #sidebar -->
-    <div style="clear: both;">&nbsp;</div>
-</div>
-<!-- end #page -->
-
-<!--<div id="footer">
-    <p>www.dorelvinelatine.com</p>
-</div>-->
-
-<!-- end #footer -->
+<p th:text="'Hello, '+${myUser.fullname}+'!'" />
 </body>
 </html>

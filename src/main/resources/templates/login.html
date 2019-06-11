@@ -2,59 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>Dorel Vine la Tine</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+    <title>Dorel vine la tine</title>
 </head>
-
 <body>
-<div id="logo">
-    <h1><a href="#">dorel vine la tine! </a></h1>
-    <p><em> o aplicație care te scapă de bătăi de cap </a></em></p>
+<h1>Login</h1>
+<div th:if="${error}">
+    Unable to login. Check your username and password.
 </div>
-<hr />
-<!-- end #logo -->
-<div id="header">
-    <div id="menu">
-
-    </div>
-    <!-- end #menu -->
-    <div id="search">
-
-    </div>
-    <!-- end #search -->
-</div>
-<!-- end #header -->
-<!-- end #header-wrapper -->
-<div id="page">
-    <div id="content">
-        <div class="post">
-            <h1>Autentificare</h1>
-            <br>
-            <form action="#" th:action="@{/register}" th:object="${baseUser}" method="post">
-                <p><input type="text" placeholder=" Nume utilizator" th:field="*{userName}" /></p>
-                <p><input type="text" placeholder=" Parola" th:field="*{password}" /></p>
-                <p><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează" /></p>
-            </form>
-        </div>
-    </div><!-- end #content -->
-    <div id="sidebar">
-        <ul>
-            <li>
-                <h2>Bla bla bla</h2>
-                <p><strong>Bla </strong>bla bla bla<a href="/register">bla</a>?</p>
-            </li>
-        </ul>
-    </div>
-    <!-- end #sidebar -->
-    <div style="clear: both;">&nbsp;</div>
-</div>
-<!-- end #page -->
-<div id="footer">
-    <p>www.dorelvinelatine.com</p>
-</div>
-<!-- end #footer -->
+<p>New here? Click
+    <a th:href="@{/register}">here</a> to register.</p>
+<form method="POST" th:action="@{/login}" id="loginForm">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" /><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" /><br/>
+    <input type="submit" value="Login"/>
+</form>
 </body>
 </html>
