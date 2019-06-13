@@ -9,7 +9,6 @@ import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.Collection;
 
-
 @Entity
 @Table(name="base_user")
 public class BaseUser implements UserDetails {
