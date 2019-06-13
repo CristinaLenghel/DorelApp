@@ -1,22 +1,79 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dorel vine la tine</title>
+    <title>Dorel Vine la Tine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-<h1>Login</h1>
-<div th:if="${error}">
-    Unable to login. Check your username and password.
+<div id="logo">
+    <h1><a href="#">dorel vine la tine! </a></h1>
+    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
-<p>New here? Click
-    <a th:href="@{/register}">here</a> to register.</p>
-<form method="POST" th:action="@{/login}" id="loginForm">
-    <label for="username">Username: </label>
-    <input type="text" name="username" id="username" required/><br/>
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password" required/><br/>
-    <input type="submit" value="Login"/>
-</form>
+
+<hr />
+<!-- end #logo -->
+<div id="header">
+        <div id="menu">
+            <ul>
+                <li><a href="/home" class="first">Home</a></li>
+                <li class="current_page_item"><a href="#">Vedem noi</a></li>
+                <li><a href="#">Ce legam aici</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <!-- end #menu -->
+        <div id="search">
+            <form method="get" action="http://www.google.com/search" target="_blank">
+                <fieldset>
+                <input type="text" name="q" id="search-text" placeholder="Google search" size="15" value="" />
+                <input type="submit" id="search-submit" value="GO" />
+                </fieldset>
+            </form>
+        </div>
+        <!-- end #search -->
+    </div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <h2 class="title"><a href="#">Intră în cont</a></h2>
+            <div class="entry">
+                <div th:if="${error}">
+                    Autentificare nereușită. Verifică numele de utilizator și parola.
+                </div>
+
+                <form class="formular" method="POST" th:action="@{/login}" id="loginForm">
+                    <p><Label name="username">Nume utilizator:</Label><input type="text" name="username" required/></p>
+                    <p><label name="password">Introdu parola:</label><input type="password" name="password" required/></p>
+                    <input type="submit" value="Login"/>
+                </form>
+                <br>
+                <p>Nu ai un cont? Poți să îți faci unul
+                    <a th:href="@{/register}">aici</a>.</p>
+            </div>
+        </div>
+    </div><!-- end #content -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>Texte</h2>
+                <p>După două episoade <strong>complet </strong>lipsite de bătaie, jandarmii probabil l-ar cafti doar pe Bran, ar fugări-o pe Sansa şi ar da cu gaze în cripta familiei <a href="/register">Stark</a>. Din cauza tornadei, într-un cartier din Braşov a plouat cu urşi.</p>
+            </li>
+        </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+    <p>www.dorelvinelatine.com</p>
+    <div class="smallFooter">
+        <p>&copy; Design by TEMPLATED</a></p>
+    </div>
+</div>
+<!-- end #footer -->
 </body>
 </html>
