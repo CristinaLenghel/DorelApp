@@ -5,13 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
-
 <body>
-
 <div id="logo">
     <h1><a href="#">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
+
 <hr />
 <!-- end #logo -->
 <div id="header">
@@ -76,5 +75,14 @@
     </div>
 </div>
 <!-- end #footer -->
+<p>New here? Click
+    <a th:href="@{/register}">here</a> to register.</p>
+<form method="POST" th:action="@{/login}" id="loginForm">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" required/><br/>
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" required/><br/>
+    <input type="submit" value="Login"/>
+</form>
 </body>
 </html>
