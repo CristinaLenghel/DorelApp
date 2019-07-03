@@ -1,12 +1,11 @@
 package ro.sci.gr14.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 
 import javax.persistence.*;
 import java.util.*;

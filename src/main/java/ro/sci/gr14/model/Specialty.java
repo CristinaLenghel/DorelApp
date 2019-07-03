@@ -1,10 +1,9 @@
 package ro.sci.gr14.model;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Objects;
+
 
 @Data
 @Entity

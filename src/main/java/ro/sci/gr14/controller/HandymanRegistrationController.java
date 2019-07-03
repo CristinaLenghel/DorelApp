@@ -8,15 +8,10 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.IHandymanRepository;
-import ro.sci.gr14.data.ISpecialtyRepository;
-import ro.sci.gr14.model.BaseUser;
 import ro.sci.gr14.model.Handyman;
-import ro.sci.gr14.model.Specialty;
 import ro.sci.gr14.security.HandymanRegistrationForm;
-import ro.sci.gr14.security.RegistrationForm;
+
 
 @Controller
 @RequestMapping("/register/registerHandyman")

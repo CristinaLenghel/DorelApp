@@ -1,7 +1,6 @@
 package ro.sci.gr14.model;
 
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,13 +9,13 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Objects;
+
 
 @Slf4j
 @Entity(name="base_user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="role", discriminatorType = DiscriminatorType.INTEGER)
-@DiscriminatorValue("0")
+@DiscriminatorValue("3")
 //@Table(name="base_user")
 public class BaseUser implements UserDetails {
     @Id

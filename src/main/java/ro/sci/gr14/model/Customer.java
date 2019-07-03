@@ -2,13 +2,10 @@ package ro.sci.gr14.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import java.util.Arrays;
-import java.util.Collection;
+
 
 @Data
 @Entity

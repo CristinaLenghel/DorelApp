@@ -1,7 +1,6 @@
-package ro.sci.gr14.security;
+package ro.sci.gr14.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.model.BaseUser;
+import ro.sci.gr14.security.RegistrationForm;
 
 @Controller
 @RequestMapping("/register")

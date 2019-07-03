@@ -8,12 +8,9 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.ICustomerRepository;
-import ro.sci.gr14.model.BaseUser;
 import ro.sci.gr14.model.Customer;
 import ro.sci.gr14.security.CustomerRegistrationForm;
-import ro.sci.gr14.security.RegistrationForm;
 
 @Controller
 @RequestMapping("/register/registerCustomer")
