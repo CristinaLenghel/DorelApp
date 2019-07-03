@@ -8,13 +8,15 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.ICustomerRepository;
+import ro.sci.gr14.model.BaseUser;
 import ro.sci.gr14.model.Customer;
 import ro.sci.gr14.security.CustomerRegistrationForm;
-
+import ro.sci.gr14.security.RegistrationForm;
 
 @Controller
-@RequestMapping("register/registerCustomer")
+@RequestMapping("/register/registerCustomer")
 @Slf4j
 
 public class CustomerRegistrationController {
@@ -38,13 +40,13 @@ public class CustomerRegistrationController {
     public String processRegistration(CustomerRegistrationForm form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             log.info("Errors" +errors.toString());
-            return "register/registerCustomer";
+            return "/registerregisterCustomer";
         }
         log.info("Log -- Customer Register POST");
         Customer customer = form.toCustomer(passwordEncoder);
         log.info("Customer: " +customer);
         try {
-            customerRepo.save(customer);
+           customerRepo.save(customer);
         }
         catch (Exception e){
             log.info("Errors: " + e.toString());

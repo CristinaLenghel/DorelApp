@@ -5,13 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.IHandymanRepository;
 import ro.sci.gr14.data.IScheduleRepository;
 import ro.sci.gr14.data.ISpecialtyRepository;
 import ro.sci.gr14.model.*;
 
+import javax.jws.WebParam;
 import java.security.Principal;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 @Slf4j
 @Controller
@@ -75,16 +80,6 @@ public class HandymanController {
         model.addAttribute("myHandyman", myHandyman);
         model.addAttribute("mySpecialties", myHandyman.getSpecialties());
         return "handyman/mySpecialties";
-    }
-
-    @GetMapping("/handymansList")
-    public String myHandymans(Model model, Principal principal) {
-        log.info("GET -  myHandymans");
-        String username = principal.getName();
-        Handyman myHandyman = handymanRepo.findByUsername(username);
-        model.addAttribute("myHandyman", myHandyman);
-        model.addAttribute("handymasList", myHandyman.getUsername());
-        return "admin/handymansList";
     }
 
     @GetMapping(value = "/editSpecialty/{id}")

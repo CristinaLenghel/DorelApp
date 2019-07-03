@@ -8,12 +8,18 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.IHandymanRepository;
+import ro.sci.gr14.data.ISpecialtyRepository;
+import ro.sci.gr14.model.BaseUser;
 import ro.sci.gr14.model.Handyman;
+import ro.sci.gr14.model.Specialty;
 import ro.sci.gr14.security.HandymanRegistrationForm;
+import ro.sci.gr14.security.RegistrationForm;
 
 @Controller
-@RequestMapping("register/registerHandyman")
+@RequestMapping("/register/registerHandyman")
 @Slf4j
 public class HandymanRegistrationController {
 
@@ -49,13 +55,22 @@ public class HandymanRegistrationController {
         Handyman handyman = form.toHandyman(passwordEncoder);
         log.info("form.toHandyman -- "+ handyman);
         try {
-            handymanRepo.save(handyman);
-            //userRepo.save(specialty.getBase_user());
+            Handyman registered=handymanRepo.findByUsername(handyman.getUsername());
+            if (registered==null){
+                log.info("HandymanControler - save handyman");
+                log.info("Handyman: "+handyman);
+                handymanRepo.save(handyman);}
+            else {
+                model.addAttribute("username", form.getUsername());
+                //model.addAttribute("error","Username existent");
+                //return  "register/registerHandyman";
+                throw new Exception("Username existent.");
+            }
+
         }
         catch (Exception e){
             log.info("Errors" +e.toString());
             model.addAttribute("exception",e);
-            //model.addAttribute("baseUser",handymanUser);
             return "register/registerHandyman";
         }
         return "redirect:/login";

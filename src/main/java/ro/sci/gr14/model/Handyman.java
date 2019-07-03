@@ -31,9 +31,9 @@ public class Handyman extends BaseUser {
         specialties=new HashSet<>();
         schedules=new TreeSet<>();
     }
-    public Handyman(Long id, String username, String password, String email, String fullName, String phoneNumber,
+    public Handyman(Long id, String userName, String password, String email, String fullName, String phoneNumber,
                     String city, String county, Integer role, Set<Specialty> specialties, TreeSet<Schedule> schedules) {
-        super(id, username, password, email, fullName, phoneNumber, city, county, 1);
+        super(id, userName, password, email, fullName, phoneNumber, city, county, 1);
         this.specialties = specialties;
         //this.rating = rating;
         this.schedules = schedules;

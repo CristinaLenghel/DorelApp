@@ -16,7 +16,7 @@ import java.util.Objects;
 @Entity(name="base_user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="role", discriminatorType = DiscriminatorType.INTEGER)
-@DiscriminatorValue("3")
+@DiscriminatorValue("0")
 //@Table(name="base_user")
 public class BaseUser implements UserDetails {
     @Id
