@@ -13,7 +13,7 @@ import ro.sci.gr14.model.Handyman;
 import ro.sci.gr14.security.HandymanRegistrationForm;
 
 @Controller
-@RequestMapping("/registerHandyman")
+@RequestMapping("register/registerHandyman")
 @Slf4j
 public class HandymanRegistrationController {
 
@@ -36,14 +36,14 @@ public class HandymanRegistrationController {
     @GetMapping
     public String RegisterForm() {
         log.info("Log -- Handyman Register Get");
-        return "registerHandyman";
+        return "register/registerHandyman";
     }
 
     @PostMapping
     public String processRegistration(HandymanRegistrationForm form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             log.info("Errors" +errors.toString());
-            return "registerHandyman";
+            return "register/registerHandyman";
         }
         log.info("Log -- Handyman Register post");
         Handyman handyman = form.toHandyman(passwordEncoder);
@@ -56,7 +56,7 @@ public class HandymanRegistrationController {
             log.info("Errors" +e.toString());
             model.addAttribute("exception",e);
             //model.addAttribute("baseUser",handymanUser);
-            return "registerHandyman";
+            return "register/registerHandyman";
         }
         return "redirect:/login";
     }

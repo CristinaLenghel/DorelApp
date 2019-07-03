@@ -44,7 +44,7 @@
             <div th:if="${exception}">
                 <font color="red">Numele de utilizator există deja. Încearcă unul nou.</font>
             </div>
-            <form class="formular" th:action="@{/registerHandyman}" method="post" id="handymanRegisterForm">
+            <form class="formular" th:action="@{register/registerHandyman}" method="post" id="handymanRegisterForm">
                 <p><input type="text" placeholder="Nume utilizator" name="username" required/></p>
                 <p><input type="text" placeholder="Email" name="email" required></p>
                 <p><input type="text" placeholder="Nume complet" name="fullname" required/></p>
