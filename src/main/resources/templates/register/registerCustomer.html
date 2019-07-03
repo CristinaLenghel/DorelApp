@@ -41,7 +41,7 @@
     <div id="content">
         <div class="post">
             <h2 class="title"><a href="#">Creează un cont</a></h2>
-            <form class="formular" th:action="@{/registerCustomer}" method="post" id="customerRegiterForm">
+            <form class="formular" th:action="@{/register/registerCustomer}" method="post" id="customerRegiterForm">
                 <div class="validationError" th:if="${param.error}" >
                     Invalid username or password.
                 </div>

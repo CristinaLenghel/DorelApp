@@ -44,7 +44,7 @@
             <div th:if="${exception}">
                 <font color="red">Numele de utilizator există deja. Încearcă unul nou.</font>
             </div>
-            <form class="formular" th:action="@{/registerHandyman}" method="post" id="handymanRegisterForm">
+            <form class="formular" th:action="@{/register/registerHandyman}" method="post" id="handymanRegisterForm">
                 <div class="validationError" th:if="${param.error}" th:text="${errorMsg}">
                     Invalid username or password.
                 </div>

@@ -33,14 +33,14 @@ public class CustomerRegistrationController {
     @GetMapping
     public String registerForm() {
         log.info("Log -- Customer Register GET");
-        return "register/registerCustomer";
+        return "/register/registerCustomer";
     }
 
     @PostMapping
     public String processRegistration(CustomerRegistrationForm form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             log.info("Errors" +errors.toString());
-            return "register/registerCustomer";
+            return "registerCustomer";
         }
         log.info("Log -- Customer Register POST");
         Customer customer = form.toCustomer(passwordEncoder);
@@ -52,7 +52,7 @@ public class CustomerRegistrationController {
             log.info("Errors: " + e.toString());
             model.addAttribute("exception",e);
             model.addAttribute("myUser",customer);
-            return "register/registerCustomer";
+            return "/register/registerCustomer";
         }
         return "redirect:/login";
     }
