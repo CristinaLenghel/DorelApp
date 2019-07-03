@@ -19,7 +19,7 @@ public class RegistrationForm {
 
     public BaseUser toUser(PasswordEncoder passwordEncoder) {
         log.info("Registration Form - Create new Base user");
-        BaseUser user= new BaseUser(0L,username, passwordEncoder.encode(password),email,fullname, phonenumber, city, county, "user");
+        BaseUser user= new BaseUser(0L,username, passwordEncoder.encode(password),email,fullname, phonenumber, city, county,0);
         log.info("New user: "+user);
         return user;
     }

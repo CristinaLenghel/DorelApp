@@ -40,18 +40,17 @@
         <div class="post">
             <h2 class="title"><a href="#">Intră în cont</a></h2>
             <div class="entry">
-                <div th:if="${error}">
-                    Autentificare nereușită. Verifică numele de utilizator și parola.
-                </div>
-
                 <form class="formular" method="POST" th:action="@{/login}" id="loginForm">
                     <p><Label name="username">Nume utilizator:</Label><input type="text" name="username" required/></p>
                     <p><label name="password">Introdu parola:</label><input type="password" name="password" required/></p>
+                    <div><span class="validationError" th:if="${param.error}" >
+                        Invalid username or password.
+                    </span></div>
                     <input type="submit" value="Login"/>
                 </form>
                 <br>
                 <p>Nu ai un cont? Poți să îți faci unul
-                    <a th:href="@{/register}">aici</a>.</p>
+                    <a th:href="@{/home}">aici</a>.</p>
             </div>
         </div>
     </div><!-- end #content -->

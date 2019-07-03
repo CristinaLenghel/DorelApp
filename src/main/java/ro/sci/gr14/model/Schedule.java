@@ -1,41 +1,77 @@
 package ro.sci.gr14.model;
 
-import java.util.Date;
-import java.util.LinkedList;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
-public class Schedule {
+import javax.persistence.*;
+import java.util.Comparator;
+import java.util.Objects;
 
-    private Date scheduleHoursIn;
-    private Date scheduleHoursOut;
-    private LinkedList<WeekDays> scheduleDays;
+@Slf4j
+@Entity
+@Data
+@NoArgsConstructor
 
-    public Schedule(Date scheduleHoursIn, Date scheduleHoursOut, LinkedList<WeekDays> scheduleDays) {
-        this.scheduleHoursIn = scheduleHoursIn;
-        this.scheduleHoursOut = scheduleHoursOut;
-        this.scheduleDays = scheduleDays;
+public class Schedule implements Comparable<Schedule> {
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "auto_gen")
+    private Long id = 0L;
+    @Column(name = "hourin", length = 10)
+    private String hourin;
+    @Column(name = "hourout", length = 10)
+    private String hourout;
+    @Column(columnDefinition = "varchar(10)")
+    private WeekDays day;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "handyman_id", referencedColumnName = "id", nullable = false)
+    private Handyman handyman;
+
+    public Schedule(String hourin, String hourout, WeekDays day) {
+        this.hourin = hourin;
+        this.hourout = hourout;
+        this.day = day;
     }
 
-    public Date getScheduleHoursIn() {
-        return scheduleHoursIn;
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "Id=" + id +
+                ", hourin='" + hourin + '\'' +
+                ", hourout='" + hourout + '\'' +
+                ", day=" + day +
+                '}';
     }
 
-    public void setScheduleHoursIn(Date scheduleHoursIn) {
-        this.scheduleHoursIn = scheduleHoursIn;
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) return false;
+        if (this == o) return true;
+        if (!(o instanceof Schedule)) return false;
+        Schedule schedule = (Schedule) o;
+        return Objects.equals(getId(), schedule.getId()) &&
+                getHourin().equals(schedule.getHourin()) &&
+                getHourout().equals(schedule.getHourout()) &&
+                getDay() == schedule.getDay() &&
+                getHandyman().equals(schedule.getHandyman());
     }
 
-    public Date getScheduleHoursOut() {
-        return scheduleHoursOut;
+    @Override
+    public int hashCode() {
+        int result = 17;
+
+        result = 31 * result + (int) (id ^ (id >>> 32));
+        result = 31 * result + hourin.hashCode();
+        result = 31 * result + hourout.hashCode();
+        result = 31 * result + day.toString().hashCode();
+
+        return result;
     }
 
-    public void setScheduleHoursOut(Date scheduleHoursOut) {
-        this.scheduleHoursOut = scheduleHoursOut;
-    }
-
-    public LinkedList<WeekDays> getScheduleDays() {
-        return scheduleDays;
-    }
-
-    public void setScheduleDays(LinkedList<WeekDays> scheduleDays) {
-        this.scheduleDays = scheduleDays;
+    @Override
+    public int compareTo(Schedule otherSchedule) {
+        log.info(""+(this.day.getValue()- otherSchedule.getDay().getValue()));
+        return this.day.getValue()- otherSchedule.getDay().getValue();
     }
 }

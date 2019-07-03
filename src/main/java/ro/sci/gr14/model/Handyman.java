@@ -1,47 +1,86 @@
 package ro.sci.gr14.model;
 
-import java.util.Date;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import javax.persistence.*;
+import java.util.*;
+
+@Slf4j
+@Entity
+@Data
+@DiscriminatorValue("1")
 public class Handyman extends BaseUser {
+    @OneToMany(mappedBy = "handyman", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private Set<Specialty> specialties;
 
-    private String specialty;
-    private Date workingSince;
-    private int pricePerHour;
-    private Rating rating;
-    private Schedule schedule;
+    @OneToMany(mappedBy = "handyman", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
+    private Set<Schedule> schedules;
 
-    public Handyman(Long id, String userName, String password, String email, String fullName, String phoneNumber,
-                    String city, String county, String specialty, Date workingSince, int pricePerHour, Rating rating,
-                    Schedule schedule, String role) {
-        super(id, userName, password, email, fullName, phoneNumber, city, county,role);
-        this.specialty = specialty;
-        this.workingSince = workingSince;
-        this.pricePerHour = pricePerHour;
-        this.rating = rating;
-        this.schedule = schedule;
+    //private Rating rating;
+    //private Schedule_1 schedule;
+
+    public Handyman(){
+        specialties=new HashSet<>();
+        schedules=new TreeSet<>();
+    }
+    public Handyman(Long id, String username, String password, String email, String fullName, String phoneNumber,
+                    String city, String county, Integer role, Set<Specialty> specialties, TreeSet<Schedule> schedules) {
+        super(id, username, password, email, fullName, phoneNumber, city, county, 1);
+        this.specialties = specialties;
+        //this.rating = rating;
+        this.schedules = schedules;
     }
 
-    public String getSpecialty() {
-        return specialty;
+    public void addSpecialty(Specialty specialty){
+        specialty.setHandyman(this);
+        specialties.add(specialty);
+    }
+    public void removeSpecialty(Specialty specialty){
+        specialties.remove(specialty);
     }
 
-    public void setSpecialty(String specialty) {
-        this.specialty = specialty;
+    public void addSchedule(Schedule daySchedule){
+        daySchedule.setHandyman(this);
+        schedules.add(daySchedule);
     }
 
-    public Date getWorkingSince() {
-        return workingSince;
+//    public void removeSchedule(Schedule daySchedule){
+//        specialties.remove(daySchedule);
+//    }
+
+    @Override
+    public String toString() {
+        return "Handyman{" + super.toString()+
+                " specialties= " + specialties +
+                " schedules= "+ schedules+
+                '}';
     }
 
-    public void setWorkingSince(Date workingSince) {
-        this.workingSince = workingSince;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Handyman)) return false;
+        Handyman handyman = (Handyman) o;
+        return Objects.equals(getSpecialties(), handyman.getSpecialties()) &&
+                Objects.equals(getSchedules(), handyman.getSchedules());
     }
 
-    public int getPricePerHour() {
-        return pricePerHour;
-    }
+    @Override
+    public int hashCode() {
+        int result=17;
 
-    public void setPricePerHour(int pricePerHour) {
-        this.pricePerHour = pricePerHour;
+        result=result*31+ specialties.hashCode();
+        result=result*31+ schedules.hashCode();
+        result=result*31+ super.hashCode();
+
+        return result;
     }
 }

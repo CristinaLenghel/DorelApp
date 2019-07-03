@@ -17,24 +17,14 @@ import java.security.Principal;
 
 @Slf4j
 @Controller
-@RequestMapping("/user")
 public class UserController {
-    @Autowired
-    private IBaseUserRepository userRepo;
-
-    @Autowired
-    public  UserController(IBaseUserRepository useRepo){ this.userRepo=userRepo;
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
-
-    @GetMapping
-    public String registerUser(Model model, Principal principal) {
-        log.info("log -- user getMapping");
-        String username = principal.getName();
-        log.info("log -- username: "+username);
-        BaseUser user = userRepo.findByUsername(username);
-        log.info("log -- "+user.toString());
-        model.addAttribute("myUser", user);
-        return "user";
+    @GetMapping("/access-denied")
+    public String accessDenied() {
+        return "/error/access-denied";
     }
 }

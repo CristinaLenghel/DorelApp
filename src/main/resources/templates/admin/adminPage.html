@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Dorel Vine la Tine</title>
@@ -16,25 +16,22 @@
 <hr />
 <!-- end #logo -->
 <div id="header">
-        <div id="menu">
-            <ul>
-                <li><a href="home" class="first">Home</a></li>
-                <li class="current_page_item"><a href="#">Vedem noi</a></li>
-                <li><a href="#">Ce legam aici</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <!-- end #menu -->
-        <div id="search">
-            <form method="get" action="http://www.google.com/search" target="_blank">
-                <fieldset>
+    <div id="menu">
+        <ul>
+            <li><a href="../admin/handymansList" >Sterge handyman</a></li>
+        </ul>
+    </div>
+    <!-- end #menu -->
+    <div id="search">
+        <form method="get" action="http://www.google.com/search" target="_blank">
+            <fieldset>
                 <input type="text" name="q" id="search-text" placeholder="Google search" size="15" value="" />
                 <input type="submit" id="search-submit" value="GO" />
-                </fieldset>
-            </form>
-        </div>
-        <!-- end #search -->
+            </fieldset>
+        </form>
     </div>
+    <!-- end #search -->
+</div>
 <!-- end #header -->
 <!-- end #header-wrapper -->
 <div id="page">
@@ -42,7 +39,9 @@
         <div class="post">
             <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
             <div class="entry">
-                <p th:text="'Hello, '+${myUser.fullname}+'!'" />
+                <p th:if="${myAdmin != null}" th:text="'Hello, '+${myAdmin.fullname}+'!'" />
+                Logged user: <span sec:authentication="name">Bob</span>
+                Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
                 <form method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>

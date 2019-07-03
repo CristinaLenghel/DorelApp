@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Dorel Vine la Tine</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+
+<div id="logo">
+    <h1><a href="#">dorel vine la tine! </a></h1>
+    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+</div>
+<hr />
+<!-- end #logo -->
+<div id="header">
+    <div id="search">
+        <form class="handymans" method="get" action="http://www.google.com/search" target="_blank">
+            <fieldset>
+                <input type="text" name="q" id="search-text" placeholder="Google search" size="15" value="" />
+                <input type="submit" id="search-submit" value="GO" />
+            </fieldset>
+        </form>
+    </div>
+    <!-- end #search -->
+</div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <div class="entry">
+                <form class="formular" th:action="@{/admin/handymansList}" method="post" id="handymansList" th:object="${handymanList}">
+                    <fieldset>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Username</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="handyman, itemStat : ${handymansList}">
+                                <td><input hidden th:name="|handymansList[${itemStat.index}].id|" th:value="${handyman.getId()}"/></td>
+                                <td><input readonly th:name="|handymansList[${itemStat.index}].username|" th:value="${handyman.getUsername()}"/></td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div><!-- end #content -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>TNR</h2>
+                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+            </li>
+        </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+    <p>www.dorelvinelatine.com</p>
+    <div class="smallFooter">
+        <p>&copy; Design by TEMPLATED</a></p>
+    </div>
+</div>
+<!-- end #footer -->
+</body>
+</html>

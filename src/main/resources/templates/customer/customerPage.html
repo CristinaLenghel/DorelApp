@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Dorel Vine la Tine</title>
@@ -9,9 +8,10 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
+
 <div id="logo">
     <h1><a href="#">dorel vine la tine! </a></h1>
-    <p><em>o aplicație care te scapă de bătăi de cap</em></p>
+    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
 <!-- end #logo -->
@@ -40,31 +40,28 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Creează un cont</a></h2>
-            <form class="formular" th:action="@{/register}" method="post" id="regiterForm">
-                <p><input type="text" placeholder="Nume utilizator" name="username" required/></p>
-                <p><input type="text" placeholder="Email" name="email" required></p>
-                <p><input type="text" placeholder="Nume complet" name="fullname" required/></p>
-                <p><input type="text" placeholder="Număr de telefon" name="phonenumber" required></p>
-                <p><input type="text" placeholder="Oraș"name="city" required/></p>
-                <p><input type="text" placeholder="Județ" name="county" required/></p>
-                <br>
-                <p><label name="password">Alege o parolă:</label><input type="password" name="password" required/></p>
-                <p><label name="confirm">Confirmă parola:</label><input type="password" name="confirm" required/></p>
-                <p><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează"/></p>
-            </form>
+            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <div class="entry">
+                <p th:if="${myUser != null}" th:text="'Hello, '+${myUser.fullname}+'!'" />
+                Logged user: <span sec:authentication="name">Bob</span>
+                Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+                <form method="POST" th:action="@{/logout}" id="logoutForm">
+                    <input type="submit" value="Logout"/>
+                </form>
+            </div>
         </div>
     </div><!-- end #content -->
     <div id="sidebar">
         <ul>
             <li>
-                <h2>Blablabla</h2>
-                <p>Tot <strong>bla bla bla </strong>Toată lumea aşteaptă cu interes 5G-ul, dar o să cam usture la buzunar! Primul român cu abonament 5G spune că îl costă 300 de lei pe lună, având în vedere că preţul G-ului e neschimbat de ani de zile: 60 de lei bla bla bla ce să <a href="/login">punem</a>.</p>
+                <h2>TNR</h2>
+                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
             </li>
         </ul>
     </div>
     <!-- end #sidebar -->
     <div style="clear: both;">&nbsp;</div>
+</div>
 </div>
 <!-- end #page -->
 <div id="footer">

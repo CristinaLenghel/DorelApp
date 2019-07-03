@@ -15,11 +15,22 @@ import org.springframework.security.config.annotation.web
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    private LoggingAccessDeniedHandler accessDeniedHandler;
+
+    @Autowired
+    public SecurityConfig(AuthenticationSuccessHandler authenticationSuccessHandler) {
+        this.authenticationSuccessHandler = authenticationSuccessHandler;
+    }
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -28,20 +39,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/user")
-                .access("hasRole('USER')")
-                .antMatchers("/", "/**","/**/*.css", "/**/*.gif" ).access("permitAll()")
+                .antMatchers("/","/home","/register/*","/**/*.css", "/**/*.gif" ).access("permitAll()")
+                .antMatchers("/handyman","/handyman/**")
+                .access("hasRole('HANDYMAN')")
+                .antMatchers("/customer", "/customer/**")
+                .access("hasRole('CUSTOMER')")
+                .anyRequest().authenticated()
         .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/user", true)
+                .successHandler(authenticationSuccessHandler)
+                .permitAll()
         .and()
                 .logout()
+                .invalidateHttpSession(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/")
+                .permitAll()
+        .and()
+                .exceptionHandling()
+                .accessDeniedHandler(accessDeniedHandler)
         .and().csrf().disable();
-
-    }
+  }
 
     @Bean
     public PasswordEncoder encoder() {
