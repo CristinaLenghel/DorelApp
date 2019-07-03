@@ -14,7 +14,7 @@ public class AdminRegistrationForm extends RegistrationForm {
         log.info("Admin Registration Form - Create new Admin account");
         Admin admin= new Admin(0L, super.getUsername(), passwordEncoder.encode(super.getPassword()),
                 super.getEmail(), super.getFullname(), super.getPhonenumber(),
-                super.getCity(), super.getCounty(),1);
+                super.getCity(), super.getCounty(),0);
         log.info("Admin created" +admin);
         return admin;
     }
