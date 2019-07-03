@@ -40,7 +40,7 @@ public class CustomerRegistrationController {
     public String processRegistration(CustomerRegistrationForm form, Errors errors, Model model) {
         if (errors.hasErrors()) {
             log.info("Errors" +errors.toString());
-            return "/registerregisterCustomer";
+            return "register/registerCustomer";
         }
         log.info("Log -- Customer Register POST");
         Customer customer = form.toCustomer(passwordEncoder);
