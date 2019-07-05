@@ -226,7 +226,7 @@ input[type=submit], [type=reset] {
   margin-top: 5px;
 }
 
-input[type=submit], [type=reset] .table{
+input[type=submit].table, [type=reset].table{
  background-color: #C0C0C0;
  color: #FFFFFF;
  text-shadow: 1.5px 1.5px #505050;
@@ -236,6 +236,16 @@ input[type=submit], [type=reset] .table{
  font-weight: bold;
  font-size: 20px;
  margin-top: 5px;
+}
+
+input[type=text].table, [type=password].table {
+  border-radius: 7px;
+  min-width: 10px;
+  max-width: 100%;
+  width: 100%;
+  text-indent: 5px;
+  font-weight: normal;
+  font-size: 20px;
 }
 
 label {
