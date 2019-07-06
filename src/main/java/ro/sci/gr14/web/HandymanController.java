@@ -5,23 +5,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.IHandymanRepository;
 import ro.sci.gr14.data.IScheduleRepository;
 import ro.sci.gr14.data.ISpecialtyRepository;
 import ro.sci.gr14.model.*;
-
-import javax.jws.WebParam;
 import java.security.Principal;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 @Slf4j
 @Controller
 @RequestMapping("/handyman")
 public class HandymanController {
+
     @Autowired
     private IHandymanRepository handymanRepo;
 
@@ -30,6 +25,7 @@ public class HandymanController {
 
     @Autowired
     private IScheduleRepository scheduleRepo;
+
     @Autowired
     public HandymanController(IBaseUserRepository useRepo){
         this.handymanRepo=handymanRepo;
