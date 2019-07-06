@@ -28,7 +28,8 @@ public class UserRepositoryUserDetailsService
             throws UsernameNotFoundException {
         BaseUser user = userRepo.findByUsername(username);
         if (user != null) {
-            return user;
+            return new org.springframework.security.core.userdetails.User(user.getUsername(),
+                    user.getPassword(), user.getAuthorities());
         }
         throw new UsernameNotFoundException(
                 "User '" + username + "' not found");
