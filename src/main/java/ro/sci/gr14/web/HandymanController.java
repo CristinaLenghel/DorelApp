@@ -61,9 +61,7 @@ public class HandymanController {
         String username = principal.getName();
         Handyman myHandyman = handymanRepo.findByUsername(username);
         model.addAttribute("myHandyman", myHandyman);
-
         form.getSchedules().forEach(s->{s.setHandyman(myHandyman); scheduleRepo.save(s);});
-
         return "redirect:/handyman";
     }
 

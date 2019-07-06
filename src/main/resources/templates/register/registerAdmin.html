@@ -41,7 +41,7 @@
     <div id="content">
         <div class="post">
             <h2 class="title"><a href="#">Creează un cont</a></h2>
-            <form class="formular" th:action="@{/register/registerAdmin}" method="post" id="customerRegiterForm">
+            <form class="formular" th:action="@{/register/registerAdmin}" method="post" th:object="${adminRegistrationForm}">
                 <table>
                     <col width="150">
                     <col width="200">

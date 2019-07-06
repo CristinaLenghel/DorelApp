@@ -43,8 +43,8 @@
             <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
             <div class="entry">
                 <p th:if="${myAdmin != null}" th:text="'Hello, '+${myAdmin.fullname}+'!'" />
-                Logged user: <span sec:authentication="name">Bob</span>
-                Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
+                <p><a class="linkButton" th:href="@{/admin/myHandymans}" id="deleteHandyman">Sterge cont de mester </a></p>
+                <p><a class="linkButton" th:href="@{/register/registerAdmin}" id="registerAdmin">Creează un cont de admin </a></p>
                 <form method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>

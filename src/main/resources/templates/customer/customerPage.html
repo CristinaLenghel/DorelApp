@@ -43,8 +43,6 @@
             <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
             <div class="entry">
                 <p th:if="${myUser != null}" th:text="'Hello, '+${myUser.fullname}+'!'" />
-                Logged user: <span sec:authentication="name">Bob</span>
-                Roles: <span sec:authentication="principal.authorities">[ROLE_USER, ROLE_ADMIN]</span>
                 <form method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>
