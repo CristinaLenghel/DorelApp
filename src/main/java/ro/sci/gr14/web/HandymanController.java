@@ -46,10 +46,7 @@ public class HandymanController {
         String username = principal.getName();
         Handyman myHandyman = handymanRepo.findByUsername(username);
         model.addAttribute("form", new SchedulesCreation(myHandyman.getSchedules()));
-        //model.addAttribute("schedules", user.getSchedules());
         return "handyman/schedule";
-
-        //return  new ModelAndView("handyman/schedule","myHandyman", user);
     }
 
     @PostMapping("/schedule")
@@ -61,8 +58,6 @@ public class HandymanController {
         Handyman myHandyman = handymanRepo.findByUsername(username);
         model.addAttribute("myHandyman", myHandyman);
 
-        //form.setHandyman(myHandyman);
-        //scheduleRepo.saveAll(form.getSchedules());
         form.getSchedules().forEach(s->{s.setHandyman(myHandyman); scheduleRepo.save(s);});
 
         return "redirect:/handyman";
@@ -109,7 +104,6 @@ public class HandymanController {
         String username = principal.getName();
         Handyman handyman = handymanRepo.findByUsername(username);
         model.addAttribute("myHandyman", handyman);
-        //model.addAttribute("mySpecialty", new Specialty());
         return "handyman/updateSpecialty";
     }
 

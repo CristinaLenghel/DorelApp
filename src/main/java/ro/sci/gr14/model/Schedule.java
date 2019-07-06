@@ -70,7 +70,6 @@ public class Schedule implements Comparable<Schedule> {
 
     @Override
     public int compareTo(Schedule otherSchedule) {
-        log.info(""+(this.day.getValue()- otherSchedule.getDay().getValue()));
         return this.day.getValue()- otherSchedule.getDay().getValue();
     }
 }

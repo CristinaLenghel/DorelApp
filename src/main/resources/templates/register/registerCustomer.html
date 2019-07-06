@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Dorel Vine la Tine</title>
@@ -13,12 +13,12 @@
     <h1><a href="#">dorel vine la tine! </a></h1>
     <p><em>o aplicație care te scapă de bătăi de cap</em></p>
 </div>
-<hr />
+
 <!-- end #logo -->
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="home" class="first">Home</a></li>
+                <li><a href="/home" class="first">Home</a></li>
                 <li class="current_page_item"><a href="#">Vedem noi</a></li>
                 <li><a href="#">Ce legam aici</a></li>
                 <li><a href="#">Contact</a></li>
@@ -41,21 +41,58 @@
     <div id="content">
         <div class="post">
             <h2 class="title"><a href="#">Creează un cont</a></h2>
-            <form class="formular" th:action="@{/register/registerCustomer}" method="post" id="customerRegiterForm">
-                <div class="validationError" th:if="${param.error}" >
-                    Invalid username or password.
-                </div>
-                <p><input type="text" placeholder="Nume utilizator" name="username" required/></p>
-                <p><input type="text" placeholder="Email" name="email" required></p>
-                <p><input type="text" placeholder="Nume complet" name="fullname" required/></p>
-                <p><input type="text" placeholder="Număr de telefon" name="phonenumber" required></p>
-                <p><input type="text" placeholder="Oraș"name="city" required/></p>
-                <p><input type="text" placeholder="Județ" name="county" required/></p>
-                <p><input type="text" placeholder="Adresa" name="address" required/></p>
-                <br>
-                <p><label name="password">Alege o parolă:</label><input type="password" name="password" required/></p>
-                <p><label name="confirm">Confirmă parola:</label><input type="password" name="confirm" required/></p>
-                <p><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează"/></p>
+            <form class="formular" th:action="@{/register/registerCustomer}" method="post" th:object="${customerRegisterForm}" >
+                <table>
+                    <col width="150">
+                    <col width="200">
+                    <tr>
+                        <td>Nume utilizator:</td>
+                        <td><input class="table" type="text" th:field="*{username}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input class="table" type="text" th:field="*{email}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Nume complet:</td>
+                        <td><input class="table" type="text" th:field="*{fullname}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}">Nume Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Telefon:</td>
+                        <td><input class="table" type="text" th:field="*{phonenumber}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">Telefon Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Oraș:</td>
+                        <td><input class="table" type="text" th:field="*{city}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Județ:</td>
+                        <td><input class="table" type="text" th:field="*{county}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Adresa:</td>
+                        <td><input class="table" type="text" th:field="*{address}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Adresa Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Alege o parolă:</td>
+                        <td><input class="table" type="password" th:field="*{password}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Parola Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Confirmă parola:</td>
+                        <td><input class="table" type="password" th:field="*{confirmPassword}"></td>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>>
+                    </tr>
+                </table>
+
+                <div><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează"/></div>
             </form>
         </div>
     </div><!-- end #content -->

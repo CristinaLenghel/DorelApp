@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ro.sci.gr14.model.*;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
 
@@ -29,12 +28,6 @@ public class HandymanRegistrationForm extends RegistrationForm {
     }
 
     public void createEmptySchedule(Handyman handyman){
-        log.info("createEmptySchedule Start");
-        for (WeekDays day: WeekDays.values()){
-            handyman.addSchedule (new Schedule("","",day));
-        }
-        log.info("Added");
-        log.info("Schedules created: "+handyman.getSchedules());
+        handyman.createEmptySchedulesSet();
     }
-
 }

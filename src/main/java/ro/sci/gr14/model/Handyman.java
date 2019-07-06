@@ -24,7 +24,6 @@ public class Handyman extends BaseUser {
     private Set<Schedule> schedules;
 
     //private Rating rating;
-    //private Schedule_1 schedule;
 
     public Handyman(){
         specialties=new HashSet<>();
@@ -51,9 +50,18 @@ public class Handyman extends BaseUser {
         schedules.add(daySchedule);
     }
 
-//    public void removeSchedule(Schedule daySchedule){
-//        specialties.remove(daySchedule);
-//    }
+    public Set<Schedule> getSchedules() {
+        if (schedules.size()==0)
+            createEmptySchedulesSet();
+        return schedules;
+    }
+
+    public void createEmptySchedulesSet(){
+        log.info("createEmptySchedule Start");
+        for (WeekDays day: WeekDays.values()){
+            this.addSchedule (new Schedule("","",day));
+        }
+    }
 
     @Override
     public String toString() {
