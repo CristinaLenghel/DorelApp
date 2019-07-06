@@ -42,8 +42,8 @@
         <div class="post">
             <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
             <div class="entry">
-                <p th:if="${myUser != null}" th:text="'Hello, '+${myUser.fullname}+'!'" />
-                <form method="POST" th:action="@{/logout}" id="logoutForm">
+                <p th:if="${myUser != null}" th:text="'Bine ai venit, '+${myUser.fullname}+'!'" />
+                <form class="logoutButton" method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>
             </div>
@@ -52,8 +52,16 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Oravița</a></li>
+                    <li><a href="#">Bălan</a></li>
+                    <li><a href="#">Hațeg</a></li>
+                    <li><a href="#">Durău</a></li>
+                    <li><a href="#">Cernavodă</a></li>
+                    <li><a href="#">Olimp</a></li>
+                    <li><a href="#">Salonta</a></li>
+                    <li><a href="#">Gherla</a></li>
+                </ul>
             </li>
         </ul>
     </div>

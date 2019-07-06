@@ -41,9 +41,10 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Adaugă o meserie la profilul tău</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{/handyman/updateSpecialty/{id}(id=${mySpecialty!= null} ? ${mySpecialty.id} : 0)}" th:object="${mySpecialty}" method="post">
+                    <div class="registerSpecialty">
                     <p><label name="specialty">Meseria:</label>
                         <!--input type="text" th:field="*{specialtyname}" placeholder="" name="specialtyname" required/-->
                         <input type="text" th:value="${mySpecialty?.specialtyname}" id="specialtyname" name="specialtyname" required>
@@ -56,6 +57,7 @@
                         <!--input type="text" th:field="${mySpecialty?.priceperhour}" placeholder="" name="priceperhour" required/-->
                         <input type="text" th:value="${mySpecialty?.priceperhour}" id="priceperhour" name="priceperhour" required>
                     </p>
+                    </div>
                     <br>
                     <p><input type="submit" value="Salveaza" /> <input type="reset" value="Anulează"/></p>
                 </form>

@@ -158,7 +158,6 @@ div.postIt a img {
 
 /* Home, Login, Register buttons and inputs */
 
-
 .linkButton {
 	background: #C0C0C0;
 	color: #FFFFFF;
@@ -176,6 +175,7 @@ div.postIt a img {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration:none;
 }
+
 .linkButton table {
 	background: #C0C0C0;
 	color: #FFFFFF;
@@ -190,10 +190,8 @@ div.postIt a img {
     border-radius: 7px;
     font-weight: bold;
     font-size: 20px;
-    /*font-family: Arial, Helvetica, sans-serif;*/
     text-decoration:none;
 }
-
 
 .linkButton:hover{
     background: #C0C0C0;
@@ -249,16 +247,30 @@ input[type=text].table, [type=password].table {
 }
 
 label {
+    color: #757575;
     display: block;
     font: .9rem 'Fira Sans', sans-serif;
-    font-size: 18px;
+    font-weight: normal;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
 
 .formular p {
 margin-top: 0px;
 margin-bottom: 0px;
 }
+
+.registerSpecialty select{
+    width: 60%;
+    border: 2px solid #999;
+    border-radius: 7px;
+    height: 35px;
+    width: 60%;
+    text-indent: 5px;
+    font-weight: normal;
+    font-size: 20px;
+    outline: none !important;
+ }
 
 /* Header */
 
@@ -369,6 +381,136 @@ margin-bottom: 0px;
 	padding: 70px 0px 0px 0px;
 }
 
+#pageWide {
+	width: 85%;
+	margin: 0 auto;
+	padding: 70px 0px 0px 0px;
+}
+
+.linkButtonSpecialty {
+	background: #C0C0C0;
+	color: #FFFFFF;
+	text-shadow: 1.5px 1.5px #505050;
+    display: block;
+	height: 35px;
+ 	width: 250px;
+ 	text-indent: 5px;
+    margin-top: 10px;
+    padding: 2px;
+    text-align: center;
+    border: 2px solid #E8E8E8;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.linkButtonTable {
+	background: #C0C0C0;
+	color: #FFFFFF;
+	text-shadow: 1.5px 1.5px #505050;
+    display: block;
+	height: 35px;
+ 	width: 100px;
+    padding: 2px;
+    text-align: center;
+    border: 2px solid #E8E8E8;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.wideCell input[readonly] {
+  color: #8A8A8A;
+  border: 2px solid #999;
+  border-radius: 7px;
+  height: 30px;
+  width: 300px;
+  text-indent: 5px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.narrowCell input[readonly] {
+  color: #8A8A8A;
+  border: 2px solid #999;
+  border-radius: 7px;
+  height: 30px;
+  width: 150px;
+  text-indent: 5px;
+  text-align: center;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.scheduleCell input[readonly], .scheduleCell input {
+    border: 1px solid #999;
+    border-radius: 3px;
+    height: 30px;
+    width: 150px;
+    text-indent: 5px;
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+ }
+
+input[type=submit].scheduleButton, input[type=reset].scheduleButton {
+      background-color: #C0C0C0;
+      color: #FFFFFF;
+      text-shadow: 1.5px 1.5px #505050;
+      border-radius: 7px;
+      height: 40px;
+      width: 49%;
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 5px;
+}
+
+fieldset.scheduleFrame {
+    width: 40%;
+    border: 2px solid #999;
+    border-radius: 5px;
+}
+
+.linkButtonTable:hover{
+    background: #C0C0C0;
+	color: #FFFFFF;
+}
+
+.linkButtonSpecialty:hover{
+    background: #C0C0C0;
+	color: #FFFFFF;
+}
+
+.logoutButton {
+    margin-top: 175px;
+}
+
+input[type=text].smallerLogin, [type=password].smallerLogin {
+  border: 2px solid #999;
+  border-radius: 5px;
+  height: 30px;
+  width: 48%;
+  text-indent: 5px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+input[type=submit].smallerSubmit {
+  background-color: #C0C0C0;
+  color: #FFFFFF;
+  text-shadow: 1.5px 1.5px #505050;
+  border-radius: 7px;
+  height: 40px;
+  width: 48%;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}
 
 /** LOGO */
 
@@ -405,7 +547,6 @@ margin-bottom: 0px;
 	text-decoration: none;
 	color: #618C04;
 }
-
 
 #banner {
 	padding-bottom: 20px;
@@ -543,7 +684,6 @@ margin-bottom: 0px;
 	font-weight: normal;
 	color: #618C04;
 }
-
 
 #sidebar p {
 	line-height: 200%;

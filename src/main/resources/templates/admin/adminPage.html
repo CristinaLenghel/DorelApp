@@ -40,11 +40,11 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Mno, fă un pic de ordine pe aici</a></h2>
             <div class="entry">
-                <p th:if="${myAdmin != null}" th:text="'Hello, '+${myAdmin.fullname}+'!'" />
-                <p><a class="linkButton" th:href="@{/admin/myHandymans}" id="deleteHandyman">Sterge cont de mester </a></p>
-                <p><a class="linkButton" th:href="@{/register/registerAdmin}" id="registerAdmin">Creează un cont de admin </a></p>
+                <p th:if="${myAdmin != null}" th:text="'Bine ai venit, '+${myAdmin.fullname}+'!'" />
+                <p><a class="linkButton" th:href="@{/admin/myHandymans}" id="deleteHandyman">Șterge un cont de meșter </a></p>
+                <p><a class="linkButton" th:href="@{/register/registerAdmin}" id="registerAdmin">Creează un cont de admin</a></p>
                 <form method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>
@@ -54,8 +54,16 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Dej</a></li>
+                    <li><a href="#">Jidvei</a></li>
+                    <li><a href="#">Bârgăul Mare</a></li>
+                    <li><a href="#">Bacău</a></li>
+                    <li><a href="#">Jibou</a></li>
+                    <li><a href="#">Huedin</a></li>
+                    <li><a href="#">Zalău</a></li>
+                    <li><a href="#">Corabia</a></li>
+                </ul>
             </li>
         </ul>
     </div>
