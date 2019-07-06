@@ -48,5 +48,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/handyman/schedule").setViewName("schedule");
         registry.addViewController("/customer/customerPage").setViewName("customerPage");
     }
-
 }
