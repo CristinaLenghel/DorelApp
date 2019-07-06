@@ -60,7 +60,7 @@ public class AdminController {
         String username = principal.getName();
         Admin myAdmin = adminRepo.findByUsername(username);
         model.addAttribute("myAdmin", myAdmin);
-        model.addAttribute("mySpecialties", handymanRepository.findAll());
+        model.addAttribute("myHandymans", handymanRepository.findAll());
         return "redirect:/admin/myHandymans";
     }
 }
