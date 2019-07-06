@@ -42,7 +42,7 @@ public class AdminController {
     }
 
     @GetMapping("/myHandymans")
-    public String mySpecialties(Model model, Principal principal) {
+    public String myHandymans(Model model, Principal principal) {
         log.info("GET -  myHandymans");
         String username = principal.getName();
         Admin myAdmin = adminRepo.findByUsername(username);
@@ -52,7 +52,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "/deleteSpecialty/{id}")
-    public String deleteSpecialty(@PathVariable("id") long id, Model model, Principal principal) {
+    public String deleteHandyman(@PathVariable("id") long id, Model model, Principal principal) {
         log.info("Get -  Delete Handyman, id: "+id);
         Handyman myHandyman=handymanRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid handyman Id:" + id));
