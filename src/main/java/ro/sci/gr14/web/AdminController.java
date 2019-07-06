@@ -51,7 +51,7 @@ public class AdminController {
         return "admin/myHandymans";
     }
 
-    @GetMapping(value = "/deleteSpecialty/{id}")
+    @GetMapping(value = "/deleteHandyman/{id}")
     public String deleteHandyman(@PathVariable("id") long id, Model model, Principal principal) {
         log.info("Get -  Delete Handyman, id: "+id);
         Handyman myHandyman=handymanRepository.findById(id)

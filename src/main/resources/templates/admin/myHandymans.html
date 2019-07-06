@@ -54,7 +54,7 @@
                                 <td><input hidden th:name="|myHandymans[${itemStat.index}].id|" th:value="${handyman.getId()}"/></td>
                                 <td><input readonly th:name="|myHandymans[${itemStat.index}].fullname|" th:value="${handyman.getFullname()}"/></td>
                                 <td><input readonly th:name="|myHandymans[${itemStat.index}].username|" th:value="${handyman.getUsername()}"/></td>
-                                <td><a th:href="@{/admin/deleteSpecialty/{id}(id=${handyman.getId()})}" class="linkButton">Sterge</a></td>
+                                <td><a th:href="@{/admin/deleteHandyman/{id}(id=${handyman.getId()})}" class="linkButton">Sterge</a></td>
                             </tr>
                         </table>
                     </fieldset>
