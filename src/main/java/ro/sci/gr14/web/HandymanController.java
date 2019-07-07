@@ -89,15 +89,20 @@ public class HandymanController {
 
     @GetMapping(value = "/deleteSpecialty/{id}")
     public String deleteSpecialty(@PathVariable("id") long id, Model model, Principal principal) {
-        log.info("Get -  Delete Specialty, id: "+id);
-        Specialty mySpecialty=specialtyRepo.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid specialty Id:" + id));
-        specialtyRepo.delete(mySpecialty);
-        String username = principal.getName();
-        Handyman myHandyman = handymanRepo.findByUsername(username);
-        model.addAttribute("myHandyman", myHandyman);
-        model.addAttribute("mySpecialties", myHandyman.getSpecialties());
-        return "redirect:/handyman/mySpecialties";
+        try {
+            log.info("Get -  Delete Specialty, id: " + id);
+
+            Specialty mySpecialty = specialtyRepo.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid specialty Id:" + id));
+            specialtyRepo.delete(mySpecialty);
+            String username = principal.getName();
+            Handyman myHandyman = handymanRepo.findByUsername(username);
+            model.addAttribute("myHandyman", myHandyman);
+            model.addAttribute("mySpecialties", myHandyman.getSpecialties());
+            return "redirect:/handyman/mySpecialties";
+        } catch(Exception e) {
+            return "redirect:/errors";
+        }
     }
 
     @GetMapping("/updateSpecialty")
@@ -121,7 +126,7 @@ public class HandymanController {
             log.info("New Specialty added:"+ mySpecialty);
         }
         catch (Exception e) {
-            return "errors";
+            return "redirect:/errors";
         }
 
         model.addAttribute("mySpecialties", myHandyman.getSpecialties());

@@ -13,7 +13,7 @@
 <body>
 
 <div id="logo">
-    <h1><a href="#">dorel vine la tine! </a></h1>
+    <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
@@ -21,10 +21,11 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="../handyman" class="first">Home</a></li>
+                <li><a href="../handyman" class="first">HandyHome</a></li>
                 <li><a href="../handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="../handyman/schedule">Program lucru</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a method="POST" href="/logout">Logout</a></li>
+                <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
         <!-- end #menu -->
@@ -43,17 +44,17 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Aici poți modifica meseriile din profilul tău</a></h2>
             <div class="entry">
-                <form class="formular" th:action="@{/handyman/mySpecialties}" method="post" id="mySpecialties" th:object="${mySpecialties}">
+                <form th:action="@{/handyman/mySpecialties}" method="post" id="mySpecialties" th:object="${mySpecialties}">
                     <fieldset>
-                        <table class="table">
+                        <table>
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>Meseria</th>
-                                <th>Inceput activitate</th>
-                                <th>Tarif lei/ora</th>
+                                <th> Meseria</th>
+                                <th> Anul de început</th>
+                                <th> Tarif lei/oră</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -61,26 +62,39 @@
                             <tbody>
                             <tr th:each="specialty, itemStat : ${mySpecialties}">
                                 <td><input hidden th:name="|mySpecialties[${itemStat.index}].id|" th:value="${specialty.getId()}"/></td>
-                                <td><input readonly th:name="|mySpecialties[${itemStat.index}].specialtyname|" th:value="${specialty.getSpecialtyname()}"/></td>
-                                <td><input readonly th:name="|mySpecialties[${itemStat.index}].workingsince|" th:value="${specialty.getWorkingsince()}"/></td>
-                                <td><input readonly th:name="|mySpecialties[${itemStat.index}].priceperhour|" th:value="${specialty.getPriceperhour()}"/></td>
+                                <td class="wideCell"><input readonly th:name="|mySpecialties[${itemStat.index}].specialtyname|" th:value="${specialty.getSpecialtyname()}"/></td>
+                                <td class="narrowCell"><input readonly th:name="|mySpecialties[${itemStat.index}].workingsince|" th:value="${specialty.getWorkingsince()}"/></td>
+                                <td class="narrowCell"><input readonly th:name="|mySpecialties[${itemStat.index}].priceperhour|" th:value="${specialty.getPriceperhour()}"/></td>
                                 <!--td><input type="submit" value="Modifica" name="update" th:id="${specialty.getId()}"/></--td>
                                 <td><input type="submit" value="Sterge" name="delete"/></td-->
-                                <td><a th:href="@{/handyman/editSpecialty/{id}(id=${specialty.getId()})}" class="linkButton">Modifica</a></td>
-                                <td><a th:href="@{/handyman/deleteSpecialty/{id}(id=${specialty.getId()})}" class="linkButton">Sterge</a></td>
+                                <td><a th:href="@{/handyman/editSpecialty/{id}(id=${specialty.getId()})}" class="linkButtonTable">Modifică</a></td>
+                                <td><a th:href="@{/handyman/deleteSpecialty/{id}(id=${specialty.getId()})}" class="linkButtonTable">Șterge</a></td>
                             </tr>
+                            </tbody>
                         </table>
                     </fieldset>
                 </form>
-                <p><a th:href="@{/handyman/updateSpecialty}" class="linkButton">Adauda Meserie</a></p>
+                <a th:href="@{/handyman/updateSpecialty}" class="linkButtonSpecialty">Adaugă meserie</a>
             </div>
         </div>
     </div><!-- end #content -->
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Hunedoara</a></li>
+                    <li><a href="#">Gheorgheni</a></li>
+                    <li><a href="#">Ighiu</a></li>
+                    <li><a href="#">Sulina</a></li>
+                    <li><a href="#">Ploiești</a></li>
+                    <li><a href="#">Florești</a></li>
+                    <li><a href="#">București</a></li>
+                    <li><a href="#">Focșani</a></li>
+                    <li><a href="#">Hațeg</a></li>
+                    <li><a href="#">Durău</a></li>
+                    <li><a href="#">Cernavodă</a></li>
+                    <li><a href="#">Olimp</a></li>
+                </ul>
             </li>
         </ul>
     </div>

@@ -19,6 +19,13 @@
 <hr />
 <!-- end #logo -->
 <div id="header">
+    <div id="menu">
+        <ul>
+            <li><a href="../admin" class="first">Home</a></li>
+            <li><a method="POST" href="/logout">Logout</a></li>
+            <li ><a style="cursor:auto" href="#"></a></li>
+        </ul>
+    </div>
     <!-- end #menu -->
     <div id="search">
         <form class="specialities" method="get" action="http://www.google.com/search" target="_blank">
@@ -35,7 +42,7 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Șterge un cont de meșter</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{/admin/myHandymans}" method="post" id="myHandymans" th:object="${myHandymans}">
                     <fieldset>
@@ -54,7 +61,7 @@
                                 <td><input hidden th:name="|myHandymans[${itemStat.index}].id|" th:value="${handyman.getId()}"/></td>
                                 <td><input readonly th:name="|myHandymans[${itemStat.index}].fullname|" th:value="${handyman.getFullname()}"/></td>
                                 <td><input readonly th:name="|myHandymans[${itemStat.index}].username|" th:value="${handyman.getUsername()}"/></td>
-                                <td><a th:href="@{/admin/deleteSpecialty/{id}(id=${handyman.getId()})}" class="linkButton">Sterge</a></td>
+                                <td><a th:href="@{/admin/deleteHandyman/{id}(id=${handyman.getId()})}" class="linkButton">Sterge</a></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -65,8 +72,16 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Dej</a></li>
+                    <li><a href="#">Jidvei</a></li>
+                    <li><a href="#">Bârgăul Mare</a></li>
+                    <li><a href="#">Bacău</a></li>
+                    <li><a href="#">Jibou</a></li>
+                    <li><a href="#">Huedin</a></li>
+                    <li><a href="#">Zalău</a></li>
+                    <li><a href="#">Corabia</a></li>
+                </ul>
             </li>
         </ul>
     </div>

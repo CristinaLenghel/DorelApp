@@ -11,7 +11,7 @@
 <body>
 
 <div id="logo">
-    <h1><a href="#">dorel vine la tine! </a></h1>
+    <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
@@ -19,10 +19,11 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="../handyman" class="first">Home</a></li>
-                <li><a href="../handyman/mySpecialties" >Meseriile mele</a></li>
-                <li><a href="../handyman/schedule">Program lucru</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/handyman" class="first">HandyHome</a></li>
+                <li><a href="/handyman/mySpecialties" >Meseriile mele</a></li>
+                <li><a href="/handyman/schedule">Program lucru</a></li>
+                <li><a method="POST" href="/logout">Logout</a></li>
+                <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
         <!-- end #menu -->
@@ -41,9 +42,10 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Adaugă o meserie la profilul tău</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{/handyman/updateSpecialty/{id}(id=${mySpecialty!= null} ? ${mySpecialty.id} : 0)}" th:object="${mySpecialty}" method="post">
+                    <div class="registerSpecialty">
                     <p><label name="specialty">Meseria:</label>
                         <!--input type="text" th:field="*{specialtyname}" placeholder="" name="specialtyname" required/-->
                         <input type="text" th:value="${mySpecialty?.specialtyname}" id="specialtyname" name="specialtyname" required>
@@ -56,6 +58,7 @@
                         <!--input type="text" th:field="${mySpecialty?.priceperhour}" placeholder="" name="priceperhour" required/-->
                         <input type="text" th:value="${mySpecialty?.priceperhour}" id="priceperhour" name="priceperhour" required>
                     </p>
+                    </div>
                     <br>
                     <p><input type="submit" value="Salveaza" /> <input type="reset" value="Anulează"/></p>
                 </form>
@@ -65,8 +68,20 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Apahida</a></li>
+                    <li><a href="#">Blaj</a></li>
+                    <li><a href="#">Iași</a></li>
+                    <li><a href="#">Alexandria</a></li>
+                    <li><a href="#">Eforie Nord</a></li>
+                    <li><a href="#">Baraolt</a></li>
+                    <li><a href="#">Orșova</a></li>
+                    <li><a href="#">Focșani</a></li>
+                    <li><a href="#">King's Landing</a></li>
+                    <li><a href="#">Galați</a></li>
+                    <li><a href="#">Buzău</a></li>
+                    <li><a href="#">Sovata</a></li>
+                </ul>
             </li>
         </ul>
     </div>

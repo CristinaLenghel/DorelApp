@@ -11,7 +11,7 @@
 <body>
 
 <div id="logo">
-    <h1><a href="#">dorel vine la tine! </a></h1>
+    <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
@@ -19,10 +19,11 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="../handyman" class="first">Home</a></li>
+                <li><a href="../handyman" class="first">HandyHome</a></li>
                 <li><a href="../handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="../handyman/schedule">Program lucru</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a method="POST" href="/logout">Logout</a></li>
+                <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
         <!-- end #menu -->
@@ -41,7 +42,7 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Care este programul tău de lucru?</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{../handyman/schedule}" method="post" id="schedule" th:object="${form}">
                     <!--
@@ -57,31 +58,30 @@
                             <td ><input type="text"  th:value="${daySchedule.hourout}" name="hourout"></td>
                         </tr>
                     </table> -->
-                    <fieldset>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th></th>
-                            <th>Ziua</th>
-                            <th>Ora inceput</th>
-                            <th>Ora sfarsit</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!--tr th:each="schedule, itemStat : *{schedules}">
-                            <td><input th:field="*{schedules[__${itemStat.index}__].day}"/></td>
-                            <td><input th:field="*{schedules[__${itemStat.index}__].hourin}" /></td>
-                            <td><input th:field="*{schedules[__${itemStat.index}__].hourout}" /></td>
-                        </tr-->
-                        <tr th:each="schedule, itemStat : ${form.schedules}">
-                            <td><input hidden th:name="|schedules[${itemStat.index}].id|" th:value="${schedule.getId()}"/></td>
-                            <td><input readonly th:name="|schedules[${itemStat.index}].day|" th:value="${schedule.getDay()}"/></-td>
-                            <td><input th:name="|schedules[${itemStat.index}].hourin|" th:value="${schedule.getHourin()}"/>
-                            <td><input th:name="|schedules[${itemStat.index}].hourout|" th:value="${schedule.getHourout()}"/>
-                            </td>
-                        </tr>
-                    </table>
-                    <p><input type="submit" value="Salveaza" /> <input type="reset" value="Anulează"/></p>
+                    <fieldset class="scheduleFrame">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Ziua</th>
+                                <th>Ora început</th>
+                                <th>Ora sfârșit</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--tr th:each="schedule, itemStat : *{schedules}">
+                                <td><input th:field="*{schedules[__${itemStat.index}__].day}"/></td>
+                                <td><input th:field="*{schedules[__${itemStat.index}__].hourin}" /></td>
+                                <td><input th:field="*{schedules[__${itemStat.index}__].hourout}" /></td>
+                            </tr-->
+                            <tr th:each="schedule, itemStat : ${form.schedules}">
+                                <td><input hidden th:name="|schedules[${itemStat.index}].id|" th:value="${schedule.getId()}"/></td>
+                                <td class="scheduleCell"><input readonly th:name="|schedules[${itemStat.index}].day|" th:value="${schedule.getDay()}" style="color:grey"/></td>
+                                <td class="scheduleCell"><input th:name="|schedules[${itemStat.index}].hourin|" th:value="${schedule.getHourin()}" style="cursor:pointer"/></td>
+                                <td class="scheduleCell"><input th:name="|schedules[${itemStat.index}].hourout|" th:value="${schedule.getHourout()}" style="cursor:pointer"/></td>
+                            </tr>
+                        </table>
+                        <p><input class="scheduleButton" type="submit" value="Salveaza" /> <input class="scheduleButton" type="reset" value="Anulează"/></p>
                     </fieldset>
                 </form>
             </div>
@@ -90,8 +90,21 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Săcele</a></li>
+                    <li><a href="#">Morărești</a></li>
+                    <li><a href="#">Baia Mare</a></li>
+                    <li><a href="#">Carei</a></li>
+                    <li><a href="#">Suceag</a></li>
+                    <li><a href="#">Crișeni</a></li>
+                    <li><a href="#">Ciucea</a></li>
+                    <li><a href="#">Voroneț</a></li>
+                    <li><a href="#">Tatooine</a></li>
+                    <li><a href="#">King's Landing</a></li>
+                    <li><a href="#">Galați</a></li>
+                    <li><a href="#">Buzău</a></li>
+
+                </ul>
             </li>
         </ul>
     </div>

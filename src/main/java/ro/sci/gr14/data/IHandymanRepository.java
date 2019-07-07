@@ -11,4 +11,6 @@ import java.util.List;
 public interface IHandymanRepository extends CrudRepository<Handyman, Long> {
     List<Handyman> findByFullname(String fullname);
     Handyman findByUsername(String username);
+    List<Handyman> findByRole(Integer role);
+    List<Handyman> findByCounty(String county);
 }

@@ -1,4 +1,4 @@
-package ro.sci.gr14.controller;
+package ro.sci.gr14.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

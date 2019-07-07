@@ -11,7 +11,7 @@
 <body>
 
 <div id="logo">
-    <h1><a href="#">dorel vine la tine! </a></h1>
+    <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
@@ -19,10 +19,11 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="../handyman" class="first">Home</a></li>
+                <li><a href="../handyman" class="first">HandyHome</a></li>
                 <li><a href="../handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="../handyman/schedule">Program lucru</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a method="POST" href="/logout">Logout</a></li>
+                <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
         <!-- end #menu -->
@@ -41,10 +42,10 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Aici încă nu îmi dau seama cum o să arate.</a></h2>
+            <h2 class="title"><a href="#">Autentificare reușită</a></h2>
             <div class="entry">
-                <p th:text="'Hello, '+${myHandyman.fullname}+'!'" />
-                <form method="POST" th:action="@{/logout}" id="logoutForm">
+                <p th:text="'Bine ai venit, '+${myHandyman.fullname}+'!'" />
+                <form class="logoutButton" method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>
             </div>
@@ -53,8 +54,20 @@
     <div id="sidebar">
         <ul>
             <li>
-                <h2>TNR</h2>
-                <p>Românii au devenit <strong>foarte </strong>eurosceptici după un incident diplomatic foarte grav, chiar în ziua Europei. Europa nu a dat de băut absolut nimic, deşi toţi şefii de stat ai Uniunii Europene erau prezenţi la Sibiu şi aveau şi bani la ei, conform unor hoţi de buzunare din <a href="/register">acest </a>judeţ.</p>
+                <ul>
+                    <li><a href="#">Sfântu Gheorghe</a></li>
+                    <li><a href="#">Deva</a></li>
+                    <li><a href="#">Suceava</a></li>
+                    <li><a href="#">Praid</a></li>
+                    <li><a href="#">Tulcea</a></li>
+                    <li><a href="#">Saturn</a></li>
+                    <li><a href="#">Arad</a></li>
+                    <li><a href="#">Bistrița</a></li>
+                    <li><a href="#">Câmpeni</a></li>
+                    <li><a href="#">Sulina</a></li>
+                    <li><a href="#">Ploiești</a></li>
+                    <li><a href="#">Florești</a></li>
+                </ul>
             </li>
         </ul>
     </div>

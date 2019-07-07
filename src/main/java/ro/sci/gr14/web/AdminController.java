@@ -51,7 +51,7 @@ public class AdminController {
         return "admin/myHandymans";
     }
 
-    @GetMapping(value = "/deleteSpecialty/{id}")
+    @GetMapping(value = "/deleteHandyman/{id}")
     public String deleteHandyman(@PathVariable("id") long id, Model model, Principal principal) {
         log.info("Get -  Delete Handyman, id: "+id);
         Handyman myHandyman=handymanRepository.findById(id)
@@ -60,7 +60,7 @@ public class AdminController {
         String username = principal.getName();
         Admin myAdmin = adminRepo.findByUsername(username);
         model.addAttribute("myAdmin", myAdmin);
-        model.addAttribute("mySpecialties", handymanRepository.findAll());
+        model.addAttribute("myHandymans", handymanRepository.findAll());
         return "redirect:/admin/myHandymans";
     }
 }
