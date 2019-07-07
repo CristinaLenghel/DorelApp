@@ -40,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/","/home","/test","/error/**","/jsondata/**","/register/*","/**/*.css", "/**/*.gif" ,"/**/js/**").access("permitAll()")
+                .antMatchers("/","/home","/contacts","/test","/error/**","/jsondata/**","/register/*","/**/*.css", "/**/*.gif" ,"/**/js/**").access("permitAll()")
                 .antMatchers("/handyman","/handyman/**")
                 .access("hasRole('HANDYMAN')")
                 .antMatchers("/customer", "/customer/**")

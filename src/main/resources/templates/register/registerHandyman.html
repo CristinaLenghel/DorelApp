@@ -80,12 +80,8 @@
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
                     </tr>
                     <tr>
-<<<<<<< HEAD
                         <td>Oraș:</td>
-                        <td><select class="table" id="city" th:field="*{city}">
-                            <option disabled selected value="">Alege orasul</option>
-                        </select></td>
-                        <!--td><input class="table" type="text" th:field="*{city}"></td-->
+                        <td><input class="table" type="text" th:field="*{city}"></td>
                         <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
                     </tr>
                     <tr>
@@ -95,15 +91,14 @@
                         </select></td>
                         <!--td><input class="table" type="text" th:field="*{specialtyname}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('specialtyname')}" th:errors="*{specialtyname}">Speciality Error</span></td>
-=======
-                        <td>Specialitate:</td>
-                        <td> <select class="table" th:field="*{specialtyname}">
-                            <option value="Geamgiu">Geamgiu</option>
-                            <option value="Instalator">Instalator</option>
-                            <option value="Electrician">Electrician</option>
-                            <option value="Mecanic">Mecanic</option>
-                        </select></td>
->>>>>>> 051a276dc7c9a15f9975f20dbbb878c465627c3e
+
+<!--                        <td>Specialitate:</td>-->
+<!--                        <td> <select class="table" th:field="*{specialtyname}">-->
+<!--                            <option value="Geamgiu">Geamgiu</option>-->
+<!--                            <option value="Instalator">Instalator</option>-->
+<!--                            <option value="Electrician">Electrician</option>-->
+<!--                            <option value="Mecanic">Mecanic</option>-->
+<!--                        </select></td>-->
                     </tr>
                     <tr>
                         <td>Anul inceperii activitatii:</td>

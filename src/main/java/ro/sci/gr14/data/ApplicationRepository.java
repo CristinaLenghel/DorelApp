@@ -12,6 +12,19 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ *
+ * @author Cristina Lenghel
+ * @author Octavian Stefanescu
+ * @author Marius-Laurentiu Lorincz
+ * @author Cosmin Toma
+ * @author Serban Moraru
+ * @version 1.0
+ * @since 2019-05-08
+ * <p>
+ */
+
 @Repository
 public class ApplicationRepository {
     private JdbcTemplate jdbc;

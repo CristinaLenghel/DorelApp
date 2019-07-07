@@ -10,6 +10,20 @@ import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.Collection;
 
+/**
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ *
+ * @author Cristina Lenghel
+ * @author Octavian Stefanescu
+ * @author Marius-Laurentiu Lorincz
+ * @author Cosmin Toma
+ * @author Serban Moraru
+ * @version 1.0
+ * @since 2019-05-08
+ * <p>
+ * POJO class used to create generic instances of users
+ * Serves as a parent class for the more specific {@link Handyman}, {@link Customer} and {@link Customer} classes
+ */
 
 @Slf4j
 @Entity(name="base_user")
@@ -42,6 +56,10 @@ public class BaseUser implements UserDetails {
     @Column(insertable = false, updatable = false)
     private Integer role=0;
 
+    /**
+     * Default constructor for {@link BaseUser} instances
+     */
+
     public BaseUser(){
         id=0L;
         username="";
@@ -54,9 +72,23 @@ public class BaseUser implements UserDetails {
         role=0;
     }
 
-    public BaseUser(Long id, String userName, String password, String email, String fullname, String phonenumber, String city, String county, Integer role) {
+    /**
+     * Creates new instances of BaseUser using nine parameters
+     *
+     * @param id          an int containing the id of this particular user
+     * @param username    a String containing the username of this particular user
+     * @param password    a String containing the password of this particular user
+     * @param email       a String containing the email of this particular user
+     * @param fullname    a String containing the fullname of this particular user
+     * @param phonenumber a String containing the phonenumber of this particular user
+     * @param city        a String containing the city of this particular user
+     * @param county      a String containing the county of this particular user
+     * @param role        a String containing the role of this particular user
+     */
+
+    public BaseUser(Long id, String username, String password, String email, String fullname, String phonenumber, String city, String county, Integer role) {
         this.id = id;
-        this.username = userName;
+        this.username = username;
         this.password = password;
         this.email = email;
         this.fullname = fullname;
@@ -66,80 +98,139 @@ public class BaseUser implements UserDetails {
         this.role=role;
     }
 
-    public Long getId() {
+    /**
+     * @return the id as an int
+     */
+    public Long getId( ){
         return id;
     }
 
-    public void setId(Long id) {
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id){
         this.id = id;
     }
 
-    public String getUsername() {
+    /**
+     * @return the username as a String
+     */
+    public String getUsername( ){
         return username;
     }
 
-    public void setUsername(String userName) {
-        this.username = userName;
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username){
+        this.username = username;
     }
 
-    public String getPassword() {
+    /**
+     * @return the password as a String
+     */
+    public String getPassword( ){
         return password;
     }
 
-    public void setPassword(String password) {
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password){
         this.password = password;
     }
 
-    public String getEmail() {
+    /**
+     * @return the email as a String
+     */
+    public String getEmail( ){
         return email;
     }
 
-    public void setEmail(String email) {
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email){
         this.email = email;
     }
 
-    public String getFullname() {
+    /**
+     * @return the fullname as a String
+     */
+    public String getFullname( ){
         return fullname;
     }
 
-    public void setFullname(String fullname) {
+    /**
+     * @param fullname the fullname to set
+     */
+    public void setFullname(String fullname){
         this.fullname = fullname;
     }
 
-    public String getPhonenumber() {
+    /**
+     * @return the phonenumber as a String
+     */
+    public String getPhonenumber( ){
         return phonenumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
+    /**
+     * @param phonenumber the phonenumber to set
+     */
+    public void setPhonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
 
-    public String getCity() {
+    /**
+     * @return the city as a String
+     */
+    public String getCity( ){
         return city;
     }
 
-    public void setCity(String city) {
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city){
         this.city = city;
     }
 
-    public String getCounty() {
+    /**
+     * @return the county as a String
+     */
+    public String getCounty( ){
         return county;
     }
 
-    public void setCounty(String county) {
+    /**
+     * @param county the county to set
+     */
+    public void setCounty(String county){
         this.county = county;
     }
 
-    public Integer getRole() {
+    /**
+     * @return the role as an int
+     */
+    public Integer getRole( ){
         return role;
     }
 
-    public void setRole(Integer role) {
+    /**
+     * @param role the role to set
+     */
+    public void setRole(Integer role){
         this.role = role;
     }
 
+    /**
+     * Method overriden from the {@link Object} class
+     *
+     * @return a String containing a specific representation of BaseUser class instances
+     */
     @Override
-    public String toString() {
+    public String toString( ){
         return "BaseUser{" +
                 "id=" + id +
                 ", userName='" + username + '\'' +
@@ -153,9 +244,16 @@ public class BaseUser implements UserDetails {
                 '}';
     }
 
+    /**
+     * Method overriden from the {@link Object} class
+     * Compares memory location and only return true if two reference variable
+     * are pointing to same memory location i.e. essentially they are same object
+     *
+     * @return true if the two objects are equal
+     */
     @Override
-    public boolean equals(Object o) {
-        if (o==null) return false;
+    public boolean equals(Object o){
+        if (o == null) return false;
         if (this == o) return true;
         if (!(o instanceof BaseUser)) return false;
         BaseUser baseUser = (BaseUser) o;
@@ -170,44 +268,77 @@ public class BaseUser implements UserDetails {
                 getRole().equals(baseUser.getRole());
     }
 
+    /**
+     * Method overriden from the {@link Object} class
+     *
+     * @return result as an int
+     */
     @Override
-    public int hashCode() {
-       int result=17;
+    public int hashCode( ){
+        int result = 17;
 
-       result=result*31+(int) (id ^ (id >>> 32));
-       result=result*31+(username == null ? 0 : username.hashCode());
-       result=result*31+(password == null ? 0 : password.hashCode());
-       result=result*31+(email == null ? 0 : email.hashCode());
-       result=result*31+(fullname == null ? 0 : fullname.hashCode());
-       result=result*31+(phonenumber == null ? 0 : phonenumber.hashCode());
-       result=result*31+(city == null ? 0 : city.hashCode());
-       result=result*31+(county == null ? 0 : county.hashCode());
-       result=result*31+role;
-       return result;
+        result = result * 31 + (int) (id ^ (id >>> 32));
+        result = result * 31 + (username == null ? 0 : username.hashCode());
+        result = result * 31 + (password == null ? 0 : password.hashCode());
+        result = result * 31 + (email == null ? 0 : email.hashCode());
+        result = result * 31 + (fullname == null ? 0 : fullname.hashCode());
+        result = result * 31 + (phonenumber == null ? 0 : phonenumber.hashCode());
+        result = result * 31 + (city == null ? 0 : city.hashCode());
+        result = result * 31 + (county == null ? 0 : county.hashCode());
+        result = result * 31 + role;
+        return result;
     }
 
+    /**
+     * Overriden method of {@link GrantedAuthority} interface which extends Serializable
+     *
+     * @return role
+     */
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        log.info("User :" +this);
+    public Collection<? extends GrantedAuthority> getAuthorities( ){
+        log.info("User :" + this);
         log.info("Baza User Role value: " + role);
-        log.info("Get role: "+ Role.values()[role]);
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_"+ Role.values()[role]));
+        log.info("Get role: " + Role.values()[role]);
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_" + Role.values()[role]));
     }
 
+    /**
+     * Overiden method of UserDetailsService interface
+     *
+     * @return boolean
+     */
     @Override
-    public boolean isAccountNonExpired() {
+    public boolean isAccountNonExpired( ){
         return true;
     }
+
+    /**
+     * Overiden method of UserDetailsService interface
+     *
+     * @return boolean
+     */
     @Override
-    public boolean isAccountNonLocked() {
+    public boolean isAccountNonLocked( ){
         return true;
     }
+
+    /**
+     * Overiden method of UserDetailsService interface
+     *
+     * @return boolean
+     */
     @Override
-    public boolean isCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired( ){
         return true;
     }
+
+    /**
+     * Overiden method of UserDetailsService interface
+     *
+     * @return boolean
+     */
     @Override
-    public boolean isEnabled() {
+    public boolean isEnabled( ){
         return true;
     }
 }

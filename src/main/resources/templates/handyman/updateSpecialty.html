@@ -20,10 +20,9 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="/handyman" class="first">HandyHome</a></li>
+                <li><a href="/handyman" class="first">Pagina contului</a></li>
                 <li><a href="/handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="/handyman/schedule">Program lucru</a></li>
-                <li><a method="POST" href="/logout">Logout</a></li>
                 <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
@@ -51,7 +50,6 @@
                     <select class="table" required id="specialty" name="specialtyname" th:value="${mySpecialty?.specialtyname}">
                                 <option disabled selected value="">Alege meseria</option>
                     </select>
-                        <input type="text" th:value="${mySpecialty?.specialtyname}" id="specialtyname" name="specialtyname" required-->
                     </p>
                     <p><label name="workingsince">Anul în care ai început activitatea:</label>
                         <input type="text" th:value="${mySpecialty?.workingsince}" id="workingsince" name="workingsince" required>
