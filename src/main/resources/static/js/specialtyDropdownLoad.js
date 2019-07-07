@@ -11,7 +11,7 @@ function loadDropdownSpecialty() {
         success : function(data) {
             var html = '';
             var len = data.length;
-            html += '<option disabled value="">Alege Meseria</option>';
+            html += '<option selected disabled value="">Alege Meseria</option>';
             for (var i = 0; i < len; i++) {
                 html += '<option value="' + data[i].name + '">'
                     + data[i].name

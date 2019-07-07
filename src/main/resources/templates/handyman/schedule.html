@@ -45,40 +45,36 @@
             <h2 class="title"><a href="#">Care este programul tău de lucru?</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{../handyman/schedule}" method="post" id="schedule" th:object="${form}">
-                    <!--
-                    <table>
-                        <tr>
-                            <th>Ziua</th>
-                            <th>Ora inceput</th>
-                            <th>Ora sfarsit</th>
-                        </tr>
-                        <tr th:each="daySchedule : ${schedules}">
-                            <td th:text="${daySchedule.day}">day</td>
-                            <td><input type="text"  th:value="${daySchedule.hourin}" name="hourin"></td>
-                            <td ><input type="text"  th:value="${daySchedule.hourout}" name="hourout"></td>
-                        </tr>
-                    </table> -->
                     <fieldset class="scheduleFrame">
                         <table>
                             <thead>
                             <tr>
                                 <th></th>
                                 <th>Ziua</th>
-                                <th>Ora început</th>
-                                <th>Ora sfârșit</th>
+                                <th nowrap>Ora început</th>
+                                <th nowrap>Ora sfârșit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <!--tr th:each="schedule, itemStat : *{schedules}">
-                                <td><input th:field="*{schedules[__${itemStat.index}__].day}"/></td>
-                                <td><input th:field="*{schedules[__${itemStat.index}__].hourin}" /></td>
-                                <td><input th:field="*{schedules[__${itemStat.index}__].hourout}" /></td>
-                            </tr-->
                             <tr th:each="schedule, itemStat : ${form.schedules}">
                                 <td><input hidden th:name="|schedules[${itemStat.index}].id|" th:value="${schedule.getId()}"/></td>
-                                <td class="scheduleCell"><input readonly th:name="|schedules[${itemStat.index}].day|" th:value="${schedule.getDay()}" style="color:grey"/></td>
-                                <td class="scheduleCell"><input th:name="|schedules[${itemStat.index}].hourin|" th:value="${schedule.getHourin()}" style="cursor:pointer"/></td>
-                                <td class="scheduleCell"><input th:name="|schedules[${itemStat.index}].hourout|" th:value="${schedule.getHourout()}" style="cursor:pointer"/></td>
+                                <td class="scheduleCell"><input readonly th:name="|schedules[${itemStat.index}].day|" th:value="${schedule.getDay()}"/></td>
+                                <td>
+                                    <select class="table" th:field="*{schedules[__${itemStat.index}__].hourin}">
+                                        <option value="-" text="-">
+                                        <option th:each="i : ${#numbers.sequence(1, 24)}" th:value="${i}" th:text="${i}">
+                                        </option>
+                                    </select>
+                                    <!--input th:name="|schedules[${itemStat.index}].hourin|" th:value="${schedule.getHourin()}"/-->
+                                </td>
+                                <td>
+                                    <select class="table" th:field="*{schedules[__${itemStat.index}__].hourout}">
+                                        <option value="-" text="-">
+                                        <option th:each="i : ${#numbers.sequence(1, 24)}" th:value="${i}" th:text="${i}">
+                                        </option>
+                                    </select>
+                                    <!--input th:name="|schedules[${itemStat.index}].hourout|" th:value="${schedule.getHourout()}"/-->
+                                </td>
                             </tr>
                         </table>
                         <p><input class="scheduleButton" type="submit" value="Salveaza" /> <input class="scheduleButton" type="reset" value="Anulează"/></p>

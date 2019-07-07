@@ -76,7 +76,7 @@ public class HandymanController {
     }
 
     @GetMapping(value = "/editSpecialty/{id}")
-    public String updateStudent(@PathVariable("id") long id, Model model, Principal principal)  {
+    public String updateSpecialty(@PathVariable("id") long id, Model model, Principal principal)  {
         log.info("Get -  Edit Specialty, id = "+id);
         Specialty mySpecialty=specialtyRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid specialty Id:" + id));
