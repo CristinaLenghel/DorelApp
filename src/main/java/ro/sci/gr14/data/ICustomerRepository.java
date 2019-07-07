@@ -11,4 +11,5 @@ import java.util.List;
 public interface ICustomerRepository extends CrudRepository<Customer, Long> {
     List<Customer> findByFullname(String fullname);
     Customer findByUsername(String username);
+
 }
