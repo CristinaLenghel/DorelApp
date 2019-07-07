@@ -84,7 +84,7 @@ public class HandymanController {
         String username = principal.getName();
         Handyman myHandyman = handymanRepo.findByUsername(username);
         model.addAttribute("myHandyman", myHandyman);
-        return "/handyman/updateSpecialty";
+        return "handyman/updateSpecialty";
     }
 
     @GetMapping(value = "/deleteSpecialty/{id}")

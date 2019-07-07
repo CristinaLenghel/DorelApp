@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class ErrorController {
+public class My ErrorController {
 
-    @RequestMapping(value = "errors", method = RequestMethod.GET)
+    @RequestMapping(path="/errors", method = RequestMethod.GET)
     public ModelAndView renderErrorPage(HttpServletRequest httpRequest) {
 
-        ModelAndView errorPage = new ModelAndView("errorPage");
+        ModelAndView errorPage = new ModelAndView("errors");
         String errorMsg = "";
         int httpErrorCode = getErrorCode(httpRequest);
 
