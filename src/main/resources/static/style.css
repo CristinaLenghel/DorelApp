@@ -246,6 +246,17 @@ input[type=text].table, [type=password].table {
   font-size: 20px;
 }
 
+select.table {
+    border: 2px solid #999;
+    border-radius: 7px;
+    height: 35px;
+    width: 270px;
+    text-indent: 5px;
+    font-weight: normal;
+    font-size: 20px;
+    outline: none !important;
+}
+
 label {
     color: #757575;
     display: block;

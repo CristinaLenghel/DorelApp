@@ -79,8 +79,12 @@
                     </tr>
                     <tr>
                         <td>Specialitate:</td>
-                        <td><input class="table" type="text" th:field="*{specialtyname}"></td>
-                        <td><span class="validationError" th:if="${#fields.hasErrors('specialtyname')}" th:errors="*{specialtyname}">Speciality Error</span></td>
+                        <td> <select class="table" th:field="*{specialtyname}">
+                            <option value="Geamgiu">Geamgiu</option>
+                            <option value="Instalator">Instalator</option>
+                            <option value="Electrician">Electrician</option>
+                            <option value="Mecanic">Mecanic</option>
+                        </select></td>
                     </tr>
                     <tr>
                         <td>Anul inceperii activitatii:</td>
