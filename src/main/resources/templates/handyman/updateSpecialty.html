@@ -6,10 +6,11 @@
     <title>Dorel Vine la Tine</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-
+<script type="text/javascript" src="../../js/specialtyDropdownLoad.js"></script>
 <div id="logo">
     <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
@@ -47,15 +48,15 @@
                 <form class="formular" th:action="@{/handyman/updateSpecialty/{id}(id=${mySpecialty!= null} ? ${mySpecialty.id} : 0)}" th:object="${mySpecialty}" method="post">
                     <div class="registerSpecialty">
                     <p><label name="specialty">Meseria:</label>
-                        <!--input type="text" th:field="*{specialtyname}" placeholder="" name="specialtyname" required/-->
-                        <input type="text" th:value="${mySpecialty?.specialtyname}" id="specialtyname" name="specialtyname" required>
+                    <select class="table" required id="specialty" name="specialtyname" th:value="${mySpecialty?.specialtyname}">
+                                <option disabled selected value="">Alege meseria</option>
+                    </select>
+                        <input type="text" th:value="${mySpecialty?.specialtyname}" id="specialtyname" name="specialtyname" required-->
                     </p>
                     <p><label name="workingsince">Anul în care ai început activitatea:</label>
-                        <!--input type="text" th:field="${mySpecialty?.workingsince}" placeholder="" name="workingsince" required-->
                         <input type="text" th:value="${mySpecialty?.workingsince}" id="workingsince" name="workingsince" required>
                     </p>
                     <p><label name="priceperhour">Tarif lei pe oră:</label>
-                        <!--input type="text" th:field="${mySpecialty?.priceperhour}" placeholder="" name="priceperhour" required/-->
                         <input type="text" th:value="${mySpecialty?.priceperhour}" id="priceperhour" name="priceperhour" required>
                     </p>
                     </div>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dorel Vine la Tine</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+
+<body id>
+<div id="logo">
+    <h1><a href="#">dorel vine la tine! </a></h1>
+    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+</div>
+<hr />
+<!-- end #logo -->
+<div id="header">
+        <div id="menu">
+        </div>
+    </div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <h2 class="title"><a href="#">Bine ai venit la DorelVineLaTine.com! </a></h2>
+            <div class="entry">
+                <p th:text="${errorMsg}"/>
+            </div>
+        </div>
+    </div><!-- end #content -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>Povești bla bla</h2>
+                <p><strong>Problemele </strong>zoologice din Sibiu continuă. După ce a fost împuşcat un urs în centru, un supermarket a fost închis, pentru că era un tigru siberian la mezeluri. Managerul magazinului susţine însă că e un <a href="/register">abuz</a>.</p>
+            </li>
+        </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+    <p>www.dorelvinelatine.com</p>
+    <div class="smallFooter">
+        <p>&copy; Design by TEMPLATED</a></p>
+    </div>
+</div>
+<!-- end #footer -->
+</body>
+</html>

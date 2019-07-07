@@ -6,9 +6,13 @@
     <title>Dorel Vine la Tine</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
+<script type="text/javascript" src="../../js/cityDropdownLoad.js"></script>
+<script type="text/javascript" src="../../js/countyDropdownLoad.js"></script>
+<script type="text/javascript" src="../../js/specialtyDropdownLoad.js"></script>
 <div id="logo">
     <h1><a href="/home">dorel vine la tine! </a></h1>
     <p><em>o aplicație care te scapă de bătăi de cap</em></p>
@@ -68,18 +72,27 @@
                         <td><span class="validationError" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">Telefon Error</span></td>
                     </tr>
                     <tr>
-                        <td>Oraș:</td>
-                        <td><input class="table" type="text" th:field="*{city}"></td>
-                        <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
-                    </tr>
-                    <tr>
                         <td>Județ:</td>
-                        <td><input class="table" type="text" th:field="*{county}"></td>
+                        <td><select class="table" id="county" th:field="*{county}">
+                            <option disabled selected value="">Alege judetul</option>
+                        </select></td>
+                        <!--td><input class="table" type="text" th:field="*{county}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
                     </tr>
                     <tr>
-                        <td>Specialitate:</td>
-                        <td><input class="table" type="text" th:field="*{specialtyname}"></td>
+                        <td>Oraș:</td>
+                        <td><select class="table" id="city" th:field="*{city}">
+                            <option disabled selected value="">Alege orasul</option>
+                        </select></td>
+                        <!--td><input class="table" type="text" th:field="*{city}"></td-->
+                        <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
+                    </tr>
+                    <tr>
+                        <td>Meseria:</td>
+                        <td><select class="table" id="specialty" th:field="*{specialtyname}">
+                            <option disabled selected value="">Alege meseria</option>
+                        </select></td>
+                        <!--td><input class="table" type="text" th:field="*{specialtyname}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('specialtyname')}" th:errors="*{specialtyname}">Speciality Error</span></td>
                     </tr>
                     <tr>
