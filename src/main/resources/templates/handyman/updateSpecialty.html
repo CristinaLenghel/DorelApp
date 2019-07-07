@@ -20,10 +20,9 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="/handyman" class="first">HandyHome</a></li>
+                <li><a href="/handyman" class="first">Pagina contului</a></li>
                 <li><a href="/handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="/handyman/schedule">Program lucru</a></li>
-                <li><a method="POST" href="/logout">Logout</a></li>
                 <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
@@ -46,7 +45,7 @@
             <h2 class="title"><a href="#">Adaugă o meserie la profilul tău</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{/handyman/updateSpecialty/{id}(id=${mySpecialty!= null} ? ${mySpecialty.id} : 0)}" th:object="${mySpecialty}" method="post">
-                    <div class="registerSpecialty">
+                    <div>
                         <p><label name="specialty">Meseria:</label>
                             <div th:switch="${mySpecialty}">
                                 <span th:case="null">
