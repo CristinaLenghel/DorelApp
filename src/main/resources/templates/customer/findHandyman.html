@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Dorel Vine la Tine</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<script type="text/javascript" src="../../js/cityDropdownLoad.js"></script>
+<script type="text/javascript" src="../../js/countyDropdownLoad.js"></script>
+<script type="text/javascript" src="../../js/specialtyDropdownLoad.js"></script>
+<div id="logo">
+    <h1><a href="/home">dorel vine la tine! </a></h1>
+    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+</div>
+<hr />
+<!-- end #logo -->
+<div id="header">
+        <div id="menu">
+            <ul>
+                <li><a href="../customer" class="first">Pagina contului</a></li>
+                <li ><a style="cursor:auto" href="#"></a></li>
+            </ul>
+        </div>
+        <!-- end #menu -->
+        <div id="search">
+            <form method="get" action="http://www.google.com/search" target="_blank">
+                <fieldset>
+                <input type="text" name="q" id="search-text" placeholder="Google search" size="15" value="" />
+                <input type="submit" id="search-submit" value="GO" />
+                </fieldset>
+            </form>
+        </div>
+        <!-- end #search -->
+    </div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <h2 class="title"><a>Cauta meseriasul potrivit</a></h2>
+            <div class="entry">
+                <!--form class="customer" th:action="@{/customer/findHandyman}" id="SearchPage">
+
+
+                    <label name="speciality">Meserie :</label>
+                    <select name="specialtyname">
+                        <option value="Geamgiu">Geamgiu</option>
+                        <option value="Instalator">Instalator</option>
+                        <option value="Electrician">Electrician</option>
+                        <option value="Mecanic">Mecanic</option>
+                    </select>
+
+
+                    <label name="county">Zona :</label>
+                    <select name="county">
+                        <option value="Cluj">Cluj</option>
+                        <option value="Alba">Alba</option>
+                        <option value="Bucuresti">Bucuresti</option>
+                        <option value="Timisoara">Timisoara</option>
+                    </select>
+                    <p><input type="submit" value="Cauta"/><input type="reset" value="Reset"></p>
+                </form-->
+                <form th:action="@{/customer/findHandyman}" id="findHandyman" th:object="${handymans}">
+                    <table>
+                        <tr>
+                                <td>Meseria:</td>
+                                <td><select class="table" id="specialty" name="specialtyname">
+                                    <option selected value="">Alege meseria</option>
+                                </select></td>
+                                <td>Județ:</td>
+                                <td><select class="table" id="county" name="county">
+                                    <option selected value="">Alege Judetul</option>
+                                </select></td>
+                                <td>Oraș:</td>
+                                <td><select class="table" id="city" name="city">
+                                    <option selected value="">Alege Orasul</option>
+                                </select></td>
+                                <td><input class="table" type="submit" value="Cauta"/></td>
+                        </tr>
+                    </table>
+
+
+                    <table border="1">
+                        <thead>
+                        <tr>
+                            <th>Numele</th>
+                            <th>Localiatea</th>
+                            <th>Meseria</th>
+                            <th>Tarif lei/oră</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="handyman, itemStat : ${handymans}">
+                            <td class="wideCell" th:text="${handyman.getFullname()}"></td>
+                            <td class="wideCell" th:text="${handyman.getCity()}"></td>
+                            <td class="wideCell" th:text="${handyman.getSpecialties()[0].getSpecialtyname()}"></td>
+                            <td class="wideCell" th:text="${handyman.getSpecialties()[0].getPriceperhour()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+                <!--ul>
+                    <li th:each="handyman : ${handymans}" th:text="${handyman.fullname}+' '+${handyman.phonenumber}"/>
+                </ul-->
+            </div>
+        </div>
+    </div><!-- end #content -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <ul>
+                    <li><a href="#">Oravița</a></li>
+                    <li><a href="#">Bălan</a></li>
+                    <li><a href="#">Hațeg</a></li>
+                    <li><a href="#">Durău</a></li>
+                    <li><a href="#">Cernavodă</a></li>
+                    <li><a href="#">Olimp</a></li>
+                    <li><a href="#">Salonta</a></li>
+                    <li><a href="#">Gherla</a></li>
+                    <li><a href="#">Câmpeni</a></li>
+                    <li><a href="#">Sulina</a></li>
+                    <li><a href="#">Ploiești</a></li>
+                    <li><a href="#">Florești</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+    <p>www.dorelvinelatine.com</p>
+    <div class="smallFooter">
+        <p>&copy; Design by TEMPLATED</a></p>
+    </div>
+</div>
+<!-- end #footer -->
+</body>
+</html>

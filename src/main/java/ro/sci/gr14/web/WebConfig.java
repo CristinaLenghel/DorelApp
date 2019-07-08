@@ -42,7 +42,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/error").setViewName("errorPage");
         registry.addViewController("/contacts");
         registry.addViewController("/login");
-        registry.addViewController("/customer/customerPage").setViewName("customer");
         registry.addViewController("/register/registerCustomer").setViewName("registerCustomer");
         registry.addViewController("/register/registerHandyman").setViewName("registerHandyman");
         registry.addViewController("/register/registerAdmin").setViewName("registerAdmin");
@@ -52,5 +51,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/handyman/schedule").setViewName("schedule");
         registry.addViewController("/admin/deleteHandyman/{id}").setViewName("deleteHandyman");
         registry.addViewController("/customer/customerPage").setViewName("customerPage");
+        registry.addViewController("/customer/findHandyman").setViewName("findHandyman");
     }
 }

@@ -17,7 +17,7 @@ import java.security.Principal;
 
 @Slf4j
 @Controller
-@RequestMapping
+@RequestMapping("/customer")
 public class CustomerController {
 
     @Autowired
@@ -31,22 +31,28 @@ public class CustomerController {
         this.customerRepo=customerRepo;
     }
 
-    @GetMapping("/customer")
-    public String RegisterForm(Model model, Principal principal) {
+    @GetMapping
+    public String customerPage(Model model, Principal principal) {
         log.info("GET -  customerHomePage");
         String username = principal.getName();
         BaseUser user = customerRepo.findByUsername(username);
         model.addAttribute("myUser", user);
-        model.addAttribute("handymans",handymanRepo.findByRole(1));
         return "customer/customerPage";
     }
 
-    @RequestMapping("/customer/customerPage")
-    public String processRegistration(Model model, Principal principal, @RequestParam String county) {
+    @GetMapping("/findHandyman")
+    public String findHandyman(Model model, Principal principal, @RequestParam(required = false) String county, @RequestParam(required = false) String specialtyname, @RequestParam(required = false) String city) {
         String username = principal.getName();
         BaseUser user = customerRepo.findByUsername(username);
         model.addAttribute("myUser", user);
-        model.addAttribute("handymans",handymanRepo.findByCounty(county));
-        return "customer/customerPage";
+        if (county==null) county="";
+        if (specialtyname==null) specialtyname="";
+        if (city==null) city="";
+        //model.addAttribute("handymans",handymanRepo.findByCounty(county));
+        model.addAttribute("county",county);
+        model.addAttribute("city",city);
+        model.addAttribute("specialtyname",specialtyname);
+        model.addAttribute("handymans",handymanRepo.findByCountyAndCityAndSpecialty(county, city,specialtyname));
+        return "customer/findHandyman";
     }
 }

@@ -1,6 +1,8 @@
 package ro.sci.gr14.data;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ro.sci.gr14.model.BaseUser;
 import ro.sci.gr14.model.Handyman;
@@ -34,16 +36,24 @@ public interface IHandymanRepository extends CrudRepository<Handyman, Long> {
     Handyman findByUsername(String username);
 
     /**
-     * Returns the Handymanm with the given role
+     * Returns a list objects of Handyman type  with the given role
      * @param role a Integer representing the role number of the user
      *
      */
     List<Handyman> findByRole(Integer role);
 
     /**
-     * Returns the Handyman with the given county
+     * Returns a list objects of Handyman type with the given county
      * @param county a String representing the county of the user
      *
      */
     List<Handyman> findByCounty(String county);
+
+    /**
+     * Returns a list objects of Handyman type with the given county
+     * @param county a String representing the county of the user
+     *
+     */
+    @Query(value = "select * from base_user bu inner join specialty s on bu.id=s.handyman_id where bu.county like %?1% and bu.city like %?2% and s.specialtyname like %?3%", nativeQuery = true)
+    List<Handyman> findByCountyAndCityAndSpecialty(@Param("county") String county, @Param("city") String city,@Param("specialtyname") String specialtyname);
 }

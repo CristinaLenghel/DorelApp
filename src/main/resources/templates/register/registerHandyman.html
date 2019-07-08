@@ -74,7 +74,7 @@
                     <tr>
                         <td>Județ:</td>
                         <td><select class="table" id="county" th:field="*{county}">
-                            <option disabled selected value="">Alege judetul</option>
+                            <option disabled selected value="">Alege Judetul</option>
                         </select></td>
                         <!--td><input class="table" type="text" th:field="*{county}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
@@ -82,7 +82,7 @@
                     <tr>
                         <td>Oraș:</td>
                         <td><select class="table" id="city" th:field="*{city}">
-                            <option selected value="">Alege orasul</option>
+                            <option selected value="">Alege Orasul</option>
                         </select></td>
                         <!--td><input class="table" type="text" th:field="*{city}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
@@ -90,7 +90,7 @@
                     <tr>
                         <td>Meseria:</td>
                         <td><select class="table" id="specialty" th:field="*{specialtyname}">
-                            <option selected disabled value="">Alege meseria</option>
+                            <option selected disabled value="">Alege Meseria</option>
                         </select></td>
                         <!--td><input class="table" type="text" th:field="*{specialtyname}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('specialtyname')}" th:errors="*{specialtyname}">Speciality Error</span></td>

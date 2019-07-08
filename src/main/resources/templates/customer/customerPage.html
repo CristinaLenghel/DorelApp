@@ -18,7 +18,8 @@
 <div id="header">
         <div id="menu">
             <ul>
-                <li><a href="/customer" class="first">Pagina contului</a></li>
+                <li><a href="../customer" class="first">Pagina contului</a></li>
+                <li><a href="../customer/findHandyman" >Cauta meserias</a></li>
                 <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
@@ -40,36 +41,8 @@
         <div class="post">
             <h2 class="title"><a href="#">Autentificare reușită</a></h2>
             <div class="entry">
-                <p th:text="'Hello, '+${myUser.fullname}+'!'" />
-                <p>
-                    <form class="customer" th:action="@{/customer/customerPage}" id="SearchPage">
-
-
-                        <label name="speciality">Meserie :</label>
-                        <select name="speciality">
-                            <option value="Geamgiu">Geamgiu</option>
-                            <option value="Instalator">Instalator</option>
-                            <option value="Electrician">Electrician</option>
-                            <option value="Mecanic">Mecanic</option>
-                        </select>
-
-
-                        <label name="county">Zona :</label>
-                        <select name="county">
-                            <option value="Cluj">Cluj</option>
-                            <option value="Alba">Alba</option>
-                            <option value="Bucuresti">Bucuresti</option>
-                            <option value="Timisoara">Timisoara</option>
-                        </select>
-                <p><input type="submit" value="Cauta"/><input type="reset" value="Reset"></p>
-                </form>
-                </p>
-                <p>
-                <ul>
-                    <li th:each="handyman : ${handymans}" th:text="${handyman.fullname}+' '+${handyman.phonenumber}"/>
-                </ul>
-                </p>
-                <form method="POST" th:action="@{/logout}" id="logoutForm">
+                <p th:text="'Bine ai venit, '+${myUser.fullname}+'!'" />
+                <form class="logoutButton" method="POST" th:action="@{/logout}" id="logoutForm">
                     <input type="submit" value="Logout"/>
                 </form>
             </div>
