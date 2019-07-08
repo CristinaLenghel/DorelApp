@@ -3,11 +3,53 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Access Denied</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../../style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
-<body>
-<div layout:fragment="content" th:remove="tag">
-    <h1>Access denied</h1>
-    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+
+<body id>
+<div id="logo">
+    <h1><a href="#">dorel vine la tine! </a></h1>
+    <p><em>o aplicație care te scapă de bătăi de cap</em></p>
 </div>
+<hr />
+<!-- end #logo -->
+<div id="header">
+    <div id="menu">
+    </div>
+</div>
+<!-- end #header -->
+<!-- end #header-wrapper -->
+<div id="page">
+    <div id="content">
+        <div class="post">
+            <div class="entry">
+                <div layout:fragment="content" th:remove="tag">
+                    <h1>Access denied</h1>
+                    <p><a href="/" th:href="@{/}">Înapoi la pagina de start</a></p>
+                </div>
+            </div>
+        </div>
+    </div><!-- end #content -->
+    <div id="sidebar">
+        <ul>
+            <li>
+                <h2>Eroare...</h2>
+                <p>Problemele zoologice din Sibiu continuă. După ce a fost împuşcat un urs în centru, un supermarket a fost închis, pentru că era un tigru siberian la mezeluri. Managerul magazinului susţine însă că e un abuz, pentru că tigrul era blând şi a fost adus ca să prindă şobolanii de la brânzeturi, dar a simţit mirosul de parizer de la mezeluri şi n-a mai fost chip să-l scoată de acolo. Autorităţile spun că au fost mai multe plângeri făcute de clienţii magazinului. Se pare că tigrul mârâia la clienţi şi le lua cele mai bune caserole din coş.</p>
+            </li>
+        </ul>
+    </div>
+    <!-- end #sidebar -->
+    <div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+<!-- end #page -->
+<div id="footer">
+    <p>www.dorelvinelatine.com</p>
+    <div class="smallFooter">
+        <p>&copy; Design by TEMPLATED</a></p>
+    </div>
+</div>
+<!-- end #footer -->
 </body>
 </html>

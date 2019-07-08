@@ -1,11 +1,15 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import lombok.Data;
 
 import javax.persistence.*;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * Creates instances of Specialty class for a {@link Handyman} instance
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -14,8 +18,6 @@ import javax.persistence.*;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * Creates instances of Specialty class for a {@link Handyman} instance
  */
 @Data
 @Entity
@@ -33,7 +35,7 @@ public class Specialty {
     private Handyman handyman;
 
     /**
-     * Default constructor for {@link Specialty} instances
+     * Default constructor for Specialty instances
      */
     public Specialty( ){
         id = 0L;
@@ -75,6 +77,7 @@ public class Specialty {
      * Compares memory location and only return true if two reference variable
      * are pointing to same memory location i.e. essentially they are same object
      *
+     * @param o verified object
      * @return true if the two objects are equal
      */
     @Override

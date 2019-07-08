@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../../js/specialtyDropdownLoad.js"></script>
 <div id="logo">
     <h1><a href="/home">dorel vine la tine! </a></h1>
-    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+    <p><em>o aplicație care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
 <!-- end #logo -->
@@ -23,7 +23,6 @@
                 <li><a href="/handyman" class="first">Pagina contului</a></li>
                 <li><a href="/handyman/mySpecialties" >Meseriile mele</a></li>
                 <li><a href="/handyman/schedule">Program lucru</a></li>
-                <li><a href="/logout">Logout</a></li>
                 <li ><a style="cursor:auto" href="#"></a></li>
             </ul>
         </div>
@@ -50,7 +49,7 @@
                         <p><label name="specialty">Meseria:</label>
                             <div th:switch="${mySpecialty}">
                                 <span th:case="null">
-                                    <select required id="specialty" name="specialtyname">
+                                    <select class="updateSpecialty" required id="specialty" name="specialtyname">
                                         <option disabled selected value="">Alege meseria</option>
                                     </select>
                                 </span>
@@ -60,10 +59,10 @@
                             </div>
                         </p>
                         <p><label name="workingsince">Anul în care ai început activitatea:</label>
-                            <input type="text" th:value="${mySpecialty?.workingsince}" id="workingsince" name="workingsince" required>
+                            <input class="updateSpecialty" type="text" th:value="${mySpecialty?.workingsince}" id="workingsince" name="workingsince" required>
                         </p>
                         <p><label name="priceperhour">Tarif lei pe oră:</label>
-                            <input type="text" th:value="${mySpecialty?.priceperhour}" id="priceperhour" name="priceperhour" required>
+                            <input class="updateSpecialty" type="text" th:value="${mySpecialty?.priceperhour}" id="priceperhour" name="priceperhour" required>
                         </p>
                     </div>
                     <br>
@@ -88,6 +87,8 @@
                     <li><a href="#">Galați</a></li>
                     <li><a href="#">Buzău</a></li>
                     <li><a href="#">Sovata</a></li>
+                    <li><a href="#">Satu Mare</a></li>
+                    <li><a href="#">Tulcea</a></li>
                 </ul>
             </li>
         </ul>

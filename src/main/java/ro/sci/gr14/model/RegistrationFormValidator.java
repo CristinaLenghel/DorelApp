@@ -1,5 +1,9 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -8,7 +12,7 @@ import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.security.RegistrationForm;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * An implementation class of {@Validator} public interface to validate various String properties of an instance
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -17,8 +21,6 @@ import ro.sci.gr14.security.RegistrationForm;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- *
- * An implementation of {@Validator} public interface to validate various String properties of an instance
  */
 @Component
 public class RegistrationFormValidator implements Validator {
@@ -33,7 +35,7 @@ public class RegistrationFormValidator implements Validator {
     /**
      * Validates that the username of an instance is not empty and password confirmation equals password
      *
-     * @param o the object to be validated
+     * @param o      the object to be validated
      * @param errors the errors encountered
      */
     @Override

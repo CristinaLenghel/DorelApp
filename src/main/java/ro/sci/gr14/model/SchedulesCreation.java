@@ -1,5 +1,9 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * Creates a list of daily {@link Schedule} instances and makes a weekly schedule for every {@link Handyman} instance
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -20,8 +24,6 @@ import java.util.Set;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * Creates a list of daily {@link Schedule} instances to make a weekly schedule for every {@link Handyman} instance
  */
 @Slf4j
 @Data
@@ -39,7 +41,7 @@ public class SchedulesCreation {
     }
 
     /**
-     * Creates an empty set for {@link Schedule} instances
+     * Creates an empty set for Schedule instances
      *
      * @param schedules an instance of {@link Schedule}
      */

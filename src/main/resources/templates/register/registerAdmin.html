@@ -68,18 +68,16 @@
                     </tr>
                     <tr>
                         <td>Județ:</td>
-                        <td><select class="table" id="county" th:field="*{county}">
-                            <option selected value="">Alege Judetul</option>
+                        <td><select class="tableRegister" id="county" th:field="*{county}">
+                            <option disabled selected value="">Alege județul</option>
                         </select></td>
-                        <!--td><input class="table" type="text" th:field="*{county}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
                     </tr>
                     <tr>
                         <td>Oraș:</td>
-                        <td><select class="table" id="city" th:field="*{city}">
-                            <option selected value="">Alege Orasul</option>
+                        <td><select class="tableRegister" id="city" th:field="*{city}">
+                            <option disabled selected value="">Alege orașul</option>
                         </select></td>
-                        <!--td><input class="table" type="text" th:field="*{city}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
                     </tr>
 
@@ -114,6 +112,8 @@
                     <li><a href="#">Durău</a></li>
                     <li><a href="#">Cernavodă</a></li>
                     <li><a href="#">Olimp</a></li>
+                    <li><a href="#">Satu Mare</a></li>
+                    <li><a href="#">Tulcea</a></li>
                 </ul>
             </li>
         </ul>

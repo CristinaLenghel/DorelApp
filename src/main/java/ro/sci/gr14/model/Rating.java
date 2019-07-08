@@ -1,7 +1,12 @@
+
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 package ro.sci.gr14.model;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * POJO class used to manage input from customers about a handyman rating
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -10,8 +15,6 @@ package ro.sci.gr14.model;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * POJO class used to manage input from customers about a handyman rating
  */
 public class Rating {
 
@@ -19,7 +22,6 @@ public class Rating {
     private double averageStars;
 
     /**
-     *
      * @param votes
      * @param averageStars
      */

@@ -44,7 +44,7 @@
         <div class="post">
             <h2 class="title"><a href="#">Creează un cont de meșter</a></h2>
             <div th:if="${exception}">
-                <span class="" th:text="${exception.message}">Exceptie</span>
+                <span class="" th:text="${exception.message}">Excepție</span>
             </div>
             <form class="formular" th:action="@{/register/registerHandyman}" method="post" th:object="${handymanRegisterForm}">
                 <div class="validationError" th:if="${param.error}" th:text="${errorMsg}">
@@ -52,7 +52,7 @@
                 </div>
                 <table>
                     <tr>
-                        <td>Nume utilizator:</td>
+                    <td><span style="display:none"></span>Nume utilizator:</td>
                         <td><input class="table" type="text" th:field="*{username}"></td>
                         <td><span class="validationError" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</span></td>
                     </tr>
@@ -73,30 +73,27 @@
                     </tr>
                     <tr>
                         <td>Județ:</td>
-                        <td><select class="table" id="county" th:field="*{county}">
-                            <option disabled selected value="">Alege Judetul</option>
+                        <td><select class="tableRegister" id="county" th:field="*{county}">
+                            <option disabled selected value="">Alege județul</option>
                         </select></td>
-                        <!--td><input class="table" type="text" th:field="*{county}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
                     </tr>
                     <tr>
                         <td>Oraș:</td>
-                        <td><select class="table" id="city" th:field="*{city}">
-                            <option selected value="">Alege Orasul</option>
+                        <td><select class="tableRegister" id="city" th:field="*{city}">
+                            <option selected disabled value="">Alege orașul</option>
                         </select></td>
-                        <!--td><input class="table" type="text" th:field="*{city}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
                     </tr>
                     <tr>
                         <td>Meseria:</td>
-                        <td><select class="table" id="specialty" th:field="*{specialtyname}">
-                            <option selected disabled value="">Alege Meseria</option>
+                        <td><select class="tableRegister" id="specialty" th:field="*{specialtyname}">
+                            <option selected disabled value="">Alege meseria</option>
                         </select></td>
-                        <!--td><input class="table" type="text" th:field="*{specialtyname}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('specialtyname')}" th:errors="*{specialtyname}">Speciality Error</span></td>
                     </tr>
                     <tr>
-                        <td>Anul inceperii activitatii:</td>
+                        <td>Anul începerii activitații:</td>
                         <td><input class="table" type="text" th:field="*{workingsince}"></td>
                         <td><span class="validationError" th:if="${#fields.hasErrors('workingsince')}" th:errors="*{workingsince}">Inceput Activ Error</span></td>
                     </tr>
@@ -116,7 +113,7 @@
                         <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>
                     </tr>
                 </table>
-                <p><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează"/></p>
+                <p><input class="handyButtons" type="submit" value="Creează cont" /> <input class="handyButtons" type="reset" value="Anulează"/></p>
             </form>
         </div>
     </div><!-- end #content -->
@@ -136,6 +133,8 @@
                     <li><a href="#">Galați</a></li>
                     <li><a href="#">Buzău</a></li>
                     <li><a href="#">Sovata</a></li>
+                    <li><a href="#">Arad</a></li>
+                    <li><a href="#">Satu Mare</a></li>
                 </ul>
             </li>
         </ul>

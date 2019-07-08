@@ -1,5 +1,9 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,7 +15,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * POJO class used to create generic instances of users
+ * Serves as a parent class for the more specific {@link Handyman}, {@link Customer} and {@link Admin} classes
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -20,23 +25,17 @@ import java.util.Collection;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * POJO class used to create generic instances of users
- * Serves as a parent class for the more specific {@link Handyman}, {@link Customer} and {@link Customer} classes
  */
-
 @Slf4j
-@Entity(name="base_user")
+@Entity(name = "base_user")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="role", discriminatorType = DiscriminatorType.INTEGER)
+@DiscriminatorColumn(name = "role", discriminatorType = DiscriminatorType.INTEGER)
 @DiscriminatorValue("3")
-//@Table(name="base_user")
 public class BaseUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "auto_gen")
-    //@SequenceGenerator(name = "auto_gen", sequenceName = "A")
     private Long id;
-    @Column(name="username", unique = true)
+    @Column(name = "username", unique = true)
     @NotBlank(message = "Username is required")
     private String username;
     @NotBlank(message = "Password in required")
@@ -54,26 +53,25 @@ public class BaseUser implements UserDetails {
     @NotBlank(message = "*")
     private String county;
     @Column(insertable = false, updatable = false)
-    private Integer role=0;
+    private Integer role = 0;
 
-    /**
-     * Default constructor for {@link BaseUser} instances
+    /*
+     * Default constructor for BaseUser instances
      */
-
-    public BaseUser(){
-        id=0L;
-        username="";
-        password="";
-        email="";
-        fullname="";
-        phonenumber="";
-        city="";
-        county="";
-        role=0;
+    public BaseUser( ){
+        id = 0L;
+        username = "";
+        password = "";
+        email = "";
+        fullname = "";
+        phonenumber = "";
+        city = "";
+        county = "";
+        role = 0;
     }
 
     /**
-     * Creates new instances of BaseUser using nine parameters
+     * Creates new instances of BaseUser using more parameters
      *
      * @param id          an int containing the id of this particular user
      * @param username    a String containing the username of this particular user
@@ -85,8 +83,7 @@ public class BaseUser implements UserDetails {
      * @param county      a String containing the county of this particular user
      * @param role        a String containing the role of this particular user
      */
-
-    public BaseUser(Long id, String username, String password, String email, String fullname, String phonenumber, String city, String county, Integer role) {
+    public BaseUser(Long id, String username, String password, String email, String fullname, String phonenumber, String city, String county, Integer role){
         this.id = id;
         this.username = username;
         this.password = password;
@@ -95,7 +92,7 @@ public class BaseUser implements UserDetails {
         this.phonenumber = phonenumber;
         this.city = city;
         this.county = county;
-        this.role=role;
+        this.role = role;
     }
 
     /**
@@ -249,6 +246,7 @@ public class BaseUser implements UserDetails {
      * Compares memory location and only return true if two reference variable
      * are pointing to same memory location i.e. essentially they are same object
      *
+     * @param o verified object
      * @return true if the two objects are equal
      */
     @Override

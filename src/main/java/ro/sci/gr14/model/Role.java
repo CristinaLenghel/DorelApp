@@ -1,7 +1,12 @@
+
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 package ro.sci.gr14.model;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * Enum class for the three types of users {@link Customer}, {@link Handyman}, {@link Admin}
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -10,8 +15,6 @@ package ro.sci.gr14.model;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * Enum class for the three types of users {@link Customer}, {@link Handyman}, {@link Admin}
  */
 public enum Role {
     ADMIN(0), HANDYMAN(1), CUSTOMER(2);

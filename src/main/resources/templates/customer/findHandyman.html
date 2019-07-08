@@ -19,23 +19,23 @@
 <hr />
 <!-- end #logo -->
 <div id="header">
-        <div id="menu">
-            <ul>
-                <li><a href="../customer" class="first">Pagina contului</a></li>
-                <li ><a style="cursor:auto" href="#"></a></li>
-            </ul>
-        </div>
-        <!-- end #menu -->
-        <div id="search">
-            <form method="get" action="http://www.google.com/search" target="_blank">
-                <fieldset>
+    <div id="menu">
+        <ul>
+            <li><a href="../customer" class="first">Pagina contului</a></li>
+            <li ><a style="cursor:auto" href="#"></a></li>
+        </ul>
+    </div>
+    <!-- end #menu -->
+    <div id="search">
+        <form method="get" action="http://www.google.com/search" target="_blank">
+            <fieldset>
                 <input type="text" name="q" id="search-text" placeholder="Google search" size="15" value="" />
                 <input type="submit" id="search-submit" value="GO" />
-                </fieldset>
-            </form>
-        </div>
-        <!-- end #search -->
+            </fieldset>
+        </form>
     </div>
+    <!-- end #search -->
+</div>
 <!-- end #header -->
 <!-- end #header-wrapper -->
 <div id="page">
@@ -44,8 +44,6 @@
             <h2 class="title"><a>Cauta meseriasul potrivit</a></h2>
             <div class="entry">
                 <!--form class="customer" th:action="@{/customer/findHandyman}" id="SearchPage">
-
-
                     <label name="speciality">Meserie :</label>
                     <select name="specialtyname">
                         <option value="Geamgiu">Geamgiu</option>
@@ -53,8 +51,6 @@
                         <option value="Electrician">Electrician</option>
                         <option value="Mecanic">Mecanic</option>
                     </select>
-
-
                     <label name="county">Zona :</label>
                     <select name="county">
                         <option value="Cluj">Cluj</option>
@@ -67,19 +63,19 @@
                 <form th:action="@{/customer/findHandyman}" id="findHandyman" th:object="${handymans}">
                     <table>
                         <tr>
-                                <td>Meseria:</td>
-                                <td><select class="table" id="specialty" name="specialtyname">
-                                    <option selected value="">Alege meseria</option>
-                                </select></td>
-                                <td>Județ:</td>
-                                <td><select class="table" id="county" name="county">
-                                    <option selected value="">Alege Judetul</option>
-                                </select></td>
-                                <td>Oraș:</td>
-                                <td><select class="table" id="city" name="city">
-                                    <option selected value="">Alege Orasul</option>
-                                </select></td>
-                                <td><input class="table" type="submit" value="Cauta"/></td>
+                            <td>Meseria:</td>
+                            <td><select class="table" id="specialty" name="specialtyname">
+                                <option selected value="">Alege meseria</option>
+                            </select></td>
+                            <td>Județ:</td>
+                            <td><select class="table" id="county" name="county">
+                                <option selected value="">Alege Judetul</option>
+                            </select></td>
+                            <td>Oraș:</td>
+                            <td><select class="table" id="city" name="city">
+                                <option selected value="">Alege Orasul</option>
+                            </select></td>
+                            <td><input class="table" type="submit" value="Cauta"/></td>
                         </tr>
                     </table>
 

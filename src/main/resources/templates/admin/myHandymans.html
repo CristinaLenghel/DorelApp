@@ -14,7 +14,7 @@
 
 <div id="logo">
     <h1><a href="#">dorel vine la tine! </a></h1>
-    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+    <p><em>o aplicație care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
 <!-- end #logo -->
@@ -49,8 +49,8 @@
                             <thead>
                             <tr>
                                 <th></th>
-                                <th>Fullname</th>
-                                <th>Username</th>
+                                <th>Nume complet</th>
+                                <th>Nume utilizator</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -58,9 +58,9 @@
                             <tbody>
                             <tr th:each="handyman, itemStat : ${myHandymans}">
                                 <td><input hidden th:name="|myHandymans[${itemStat.index}].id|" th:value="${handyman.getId()}"/></td>
-                                <td><input readonly th:name="|myHandymans[${itemStat.index}].fullname|" th:value="${handyman.getFullname()}"/></td>
-                                <td><input readonly th:name="|myHandymans[${itemStat.index}].username|" th:value="${handyman.getUsername()}"/></td>
-                                <td><a th:href="@{/admin/deleteHandyman/{id}(id=${handyman.getId()})}" class="linkButton">Sterge</a></td>
+                                <td class="wideCell"><input readonly th:name="|myHandymans[${itemStat.index}].fullname|" th:value="${handyman.getFullname()}"/></td>
+                                <td class="wideCell"><input readonly th:name="|myHandymans[${itemStat.index}].username|" th:value="${handyman.getUsername()}"/></td>
+                                <td><a th:href="@{/admin/deleteHandyman/{id}(id=${handyman.getId()})}" class="linkButtonTable">Șterge</a></td>
                             </tr>
                         </table>
                     </fieldset>
@@ -80,6 +80,12 @@
                     <li><a href="#">Huedin</a></li>
                     <li><a href="#">Zalău</a></li>
                     <li><a href="#">Corabia</a></li>
+                    <li><a href="#">Satu Mare</a></li>
+                    <li><a href="#">Tulcea</a></li>
+                    <li><a href="#">Brașov</a></li>
+                    <li><a href="#">Sulina</a></li>
+                    <li><a href="#">Reșița</a></li>
+                    <li><a href="#">Zizin</a></li>
                 </ul>
             </li>
         </ul>

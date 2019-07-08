@@ -7,11 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ro.sci.gr14.data.IBaseUserRepository;
 import ro.sci.gr14.data.ICustomerRepository;
 import ro.sci.gr14.data.IHandymanRepository;
 import ro.sci.gr14.model.BaseUser;
-import ro.sci.gr14.security.HandymanRegistrationForm;
+
 
 import java.security.Principal;
 

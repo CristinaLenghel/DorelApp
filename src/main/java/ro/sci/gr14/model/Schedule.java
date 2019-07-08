@@ -1,5 +1,9 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +12,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * Creates instances of Schedule class for a {@link Handyman} instance
+ * Provides comparing methods due to the extension of @link Comparable} interface
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -17,9 +22,6 @@ import java.util.Objects;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * Creates instances of Schedule class for a {@link Handyman} instance
- * Provides comparing methods due to the extension of @link Comparable} interface
  */
 @Slf4j
 @Entity
@@ -107,10 +109,10 @@ public class Schedule implements Comparable<Schedule> {
     }
 
     /**
-     * Method overriden from the {@link Comparable} class
-     * Used to order week days in a weekly order
+     * Compares two strings lexicographically
      *
-     * @return the value of the {@link WeekDays} instance
+     * @param otherSchedule verified instance
+     * @return an int value
      */
     @Override
     public int compareTo(Schedule otherSchedule){

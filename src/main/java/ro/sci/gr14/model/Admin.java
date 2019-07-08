@@ -1,5 +1,9 @@
 package ro.sci.gr14.model;
 
+/*
+ * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ */
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,7 +11,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 /**
- * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
+ * POJO child class of the {@link BaseUser} class
+ * Is used to create more specific instances of the BaseUser class
  *
  * @author Cristina Lenghel
  * @author Octavian Stefanescu
@@ -16,11 +21,7 @@ import javax.persistence.Entity;
  * @author Serban Moraru
  * @version 1.0
  * @since 2019-05-08
- * <p>
- * POJO child class of the {@link BaseUser} class
- * Is used to create more specific instances of the BaseUser class
  */
-
 @Data
 @Entity
 @NoArgsConstructor
@@ -28,7 +29,7 @@ import javax.persistence.Entity;
 public class Admin extends BaseUser {
 
     /**
-     * Creates new instances of class Admin taking nine parameters
+     * Creates new instances of class Admin taking more parameters
      *
      * @param id          an int containing the id of this particular user
      * @param username    a String containing the username of this particular user
@@ -40,8 +41,7 @@ public class Admin extends BaseUser {
      * @param county      a String containing the county of this particular user
      * @param role        a String containing the role of this particular user
      */
-
-    public Admin(Long id, String username, String password, String email, String fullname, String phonenumber, String city, String county,Integer role) {
+    public Admin(Long id, String username, String password, String email, String fullname, String phonenumber, String city, String county, Integer role){
         super(id, username, password, email, fullname, phonenumber, city, county, role);
     }
 }

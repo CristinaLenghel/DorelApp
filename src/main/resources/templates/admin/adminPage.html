@@ -11,7 +11,7 @@
 
 <div id="logo">
     <h1><a href="#">dorel vine la tine! </a></h1>
-    <p><em>o aplicatie care te scapă de bătăi de cap</em></p>
+    <p><em>o aplicație care te scapă de bătăi de cap</em></p>
 </div>
 <hr />
 <!-- end #logo -->
@@ -42,10 +42,10 @@
             <h2 class="title"><a href="#">Mno, fă un pic de ordine pe aici</a></h2>
             <div class="entry">
                 <p th:if="${myAdmin != null}" th:text="'Bine ai venit, '+${myAdmin.fullname}+'!'" />
-                <p><a class="linkButton" th:href="@{/admin/myHandymans}" id="deleteHandyman">Șterge un cont de meșter </a></p>
-                <p><a class="linkButton" th:href="@{/register/registerAdmin}" id="registerAdmin">Creează un cont de admin</a></p>
+                <p><a class="linkButtonShort" th:href="@{/admin/myHandymans}" id="deleteHandyman">Șterge un cont de meșter </a></p>
+                <p><a class="linkButtonShort" th:href="@{/register/registerAdmin}" id="registerAdmin">Creează un cont de admin</a></p>
                 <form method="POST" th:action="@{/logout}" id="logoutForm">
-                    <input type="submit" value="Logout"/>
+                    <input class="linkButtonShort" type="submit" value="Logout"/>
                 </form>
             </div>
         </div>
@@ -54,14 +54,20 @@
         <ul>
             <li>
                 <ul>
-                    <li><a href="#">Dej</a></li>
-                    <li><a href="#">Jidvei</a></li>
-                    <li><a href="#">Bârgăul Mare</a></li>
-                    <li><a href="#">Bacău</a></li>
-                    <li><a href="#">Jibou</a></li>
-                    <li><a href="#">Huedin</a></li>
-                    <li><a href="#">Zalău</a></li>
-                    <li><a href="#">Corabia</a></li>
+                    <li><a href="#">Cluj-Napoca</a></li>
+                    <li><a href="#">Aiud</a></li>
+                    <li><a href="#">Piatra Neamț</a></li>
+                    <li><a href="#">Crevedia</a></li>
+                    <li><a href="#">Bocșa</a></li>
+                    <li><a href="#">Aiud</a></li>
+                    <li><a href="#">Sighetu Marmației</a></li>
+                    <li><a href="#">Câmpeni</a></li>
+                    <li><a href="#">Sulina</a></li>
+                    <li><a href="#">Ploiești</a></li>
+                    <li><a href="#">Florești</a></li>
+                    <li><a href="#">București</a></li>
+                    <li><a href="#">Satu Mare</a></li>
+                    <li><a href="#">Tulcea</a></li>
                 </ul>
             </li>
         </ul>
