@@ -311,6 +311,40 @@ select.table{
     outline: none !important;
  }
 
+ input[type=submit].table {
+  background-color: #C0C0C0;
+  color: #FFFFFF;
+  text-shadow: 1.5px 1.5px #505050;
+  border-radius: 7px;
+  height: 35px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: -5px;
+ }
+
+ table.tabelMaiAerisit {
+     border-collapse: collapse;
+     border: 2px solid #999;
+     width: 780px;
+ }
+
+ .tabelMaiAerisit td, .tabelMaiAerisit th {
+      border-collapse: collapse;
+      border: 2px solid #999;
+  }
+
+ select.tabelAerisit{
+     border: 1.5px solid #999;
+     border-radius: 3px;
+     width: 160px;
+     height: 35px;
+     text-indent: 5px;
+     font-weight: normal;
+     font-size: 20px;
+     outline: none !important;
+  }
+
  select.tableRegister {
      border: 2px solid #999;
      min-width: 10px;
