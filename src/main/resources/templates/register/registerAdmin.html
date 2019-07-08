@@ -69,7 +69,7 @@
                     <tr>
                         <td>Județ:</td>
                         <td><select class="table" id="county" th:field="*{county}">
-                            <option disabled selected value="">Alege judetul</option>
+                            <option selected value="">Alege judetul</option>
                         </select></td>
                         <!--td><input class="table" type="text" th:field="*{county}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('county')}" th:errors="*{county}">Judet Error</span></td>
@@ -91,7 +91,7 @@
                     <tr>
                         <td>Confirmă parola:</td>
                         <td><input class="table" type="password" th:field="*{confirmPassword}"></td>
-                        <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>
                     </tr>
                 </table>
                 <div><input type="submit" value="Creează cont" /> <input type="reset" value="Anulează"/></div>

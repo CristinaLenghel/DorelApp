@@ -77,10 +77,10 @@
                     </tr>
                     <tr>
                         <td>Oraș:</td>
-<!--                        <td><select class="table" id="city" th:field="*{city}">-->
-<!--                            <option disabled selected value="">Alege orasul</option>-->
-<!--                        </select></td>-->
-                        <td><input class="table" type="text" th:field="*{city}"></td>
+                       <td><select class="table" id="city" th:field="*{city}">-->
+                           <option selected value="">Alege orasul</option>
+                      </select></td>
+                        <!--td><input class="table" type="text" th:field="*{city}"></td-->
                         <td><span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Oras Error</span></td>
                     </tr>
                     <tr>
@@ -96,7 +96,7 @@
                     <tr>
                         <td>Confirmă parola:</td>
                         <td><input class="table" type="password" th:field="*{confirmPassword}"></td>
-                        <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>>
+                        <td><span class="validationError" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">Confirmare Error</span></td>
                     </tr>
                 </table>
 
