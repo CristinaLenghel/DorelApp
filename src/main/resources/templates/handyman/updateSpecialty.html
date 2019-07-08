@@ -42,7 +42,7 @@
 <div id="page">
     <div id="content">
         <div class="post">
-            <h2 class="title"><a href="#">Adaugă o meserie la profilul tău</a></h2>
+            <h2 class="title"><a href="#">Aici poti sa modifici anul si tariful</a></h2>
             <div class="entry">
                 <form class="formular" th:action="@{/handyman/updateSpecialty/{id}(id=${mySpecialty!= null} ? ${mySpecialty.id} : 0)}" th:object="${mySpecialty}" method="post">
                     <div>
