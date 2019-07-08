@@ -1,13 +1,12 @@
-package ro.sci.gr14;
+package ro.sci.gr14.customer;
 
 /*
  * An application that helps homeowners find handymen/craftsmen suitable for any task at hand
  */
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import ro.sci.gr14.data.ICustomerRepository;
@@ -26,19 +25,23 @@ import ro.sci.gr14.model.Customer;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DorelVineLaTineApplicationTests {
+public class CustomerTests {
 
-		@Autowired
-		private ICustomerRepository customerRepository;
+	@Mock
+	private ICustomerRepository customerRepository;
 
-		private Customer customer = new Customer(0L, "username", "parola", "email", "fullname", "nrtel", "city", "county", "adress", 2);
+
+	private Customer customer = new Customer(0L, "username", "parola", "email", "fullname", "nrtel", "city", "county", "adress", 2);
 
 
 	@Test
-		public void saveCustomerAndFindByUsername() {
-			customerRepository.save(customer);
-			Assert.assertNotNull(customerRepository.findByUsername("username"));
-		}
+	public void saveCustomer() {
+		customerRepository.save(customer);
+	}
+
+
+	@Test
+	public void deleteCustomer() {
+		customerRepository.delete(customer);
+	}
 }
-
-
