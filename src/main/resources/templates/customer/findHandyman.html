@@ -67,18 +67,26 @@
                         <thead>
                         <tr>
                             <th>Numele</th>
+                            <th>Telefon</th>
                             <th>Localiatea</th>
                             <th>Meseria</th>
                             <th>Tarif lei/oră</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="handyman, itemStat : ${handymans}">
-                            <td class="wideCell" th:text="${handyman.getFullname()}"></td>
-                            <td class="wideCell" th:text="${handyman.getCity()}"></td>
-                            <td class="wideCell" th:text="${handyman.getSpecialties()[0].getSpecialtyname()}"></td>
-                            <td class="wideCell" th:text="${handyman.getSpecialties()[0].getPriceperhour()}"></td>
-                        </tr>
+                        <div th:remove="tag" th:each="handyman: ${handymans}" th:with="specialtyCount=${handyman.specialties.size()}">
+                            <tr>
+                                <td th:rowspan="${handyman.specialties.size()}" class="wideCell" th:text="${handyman.getFullname()}"></td>
+                                <td th:rowspan="${handyman.specialties.size()}" class="wideCell" th:text="${handyman.getPhonenumber()}"></td>
+                                <td th:rowspan="${handyman.specialties.size()}" class="wideCell" th:text="${handyman.getCity()}"></td>
+                                <td class="wideCell" th:text="${specialtyCount>0}?${handyman.specialties[0].getSpecialtyname()}:''"></td>
+                                <td class="wideCell" th:text="${specialtyCount>0}?${handyman.specialties[0].getPriceperhour()}:''"></td>
+                            </tr>
+                            <tr th:each="hspecialty, itemStat2 : ${handyman.specialties}" th:if="${!itemStat2.first}">
+                                <td class="wideCell" th:text="${hspecialty.getSpecialtyname()}"></td>
+                                <td class="wideCell" th:text="${hspecialty.getPriceperhour()}"></td>
+                            </tr>
+                        </div>
                         </tbody>
                     </table>
                 </form>
